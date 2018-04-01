@@ -233,6 +233,106 @@
             
               
                 
+                <a class="post-title-link" href="/2018/04/01/LeetCode-with-JS-26-Remove-Duplicates-from-Sorted-Array/" itemprop="url">
+                  LeetCode with JS 26 Remove Duplicates from Sorted Array
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2018-04-01T12:23:20-04:00" content="2018-04-01">
+              2018-04-01
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="26-Remove-Duplicates-from-Sorted-Array"><a href="#26-Remove-Duplicates-from-Sorted-Array" class="headerlink" title="26. Remove Duplicates from Sorted Array"></a>26. Remove Duplicates from Sorted Array</h1><p>Given a sorted array, remove the duplicates <strong><em>in-place</em></strong> such that each element appear only once and return the new length.<br>Do not allocate extra space for another array, you must do this by <strong>modifying the input array</strong> <strong><em>in-place</em></strong> with O(1) extra memory.</p>
+<p><strong>Example:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Given nums = [1,1,2],</span><br><span class="line"></span><br><span class="line">Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.</span><br><span class="line">It doesn&apos;t matter what you leave beyond the new length.</span><br></pre></td></tr></table></figure></p>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>Delete duplicate elements from Array using <strong>Array.Splice()</strong>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> removeDuplicates = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> i, j, prev, len = nums.length;</span><br><span class="line">    <span class="keyword">let</span> removed = [];</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;len; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums[i] === prev)&#123;</span><br><span class="line">            removed.push(i);</span><br><span class="line">        &#125;</span><br><span class="line">        prev = nums[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(j = removed.length<span class="number">-1</span>; j&gt;=<span class="number">0</span>; j--)&#123;</span><br><span class="line">        nums.splice(removed[j],<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> nums.length;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>For a sorted array, we can use two pointers i, j to find the duplicate.<br>If nums[i] == nums[j], we increment j to skip the duplicate.<br>If nums[i] !== nums[j], we know the duplicate run has ended so we copy the new value nums[j] to nums[i+1].<br>i is then incremented and we repeat until j reached the end of the array.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> removeDuplicates = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (j=<span class="number">1</span>; j&lt;nums.length; j++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[j] !== nums[i]) &#123;</span><br><span class="line">            nums[++i] = nums[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i+<span class="number">1</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time Complexity：O(n)<br>Space Complexity：O(1)</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018/03/11/How-to-create-a-blog-with-Hexo-GitHub/" itemprop="url">
                   How to create a blog with Hexo + GitHub
                 </a>
@@ -572,7 +672,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
