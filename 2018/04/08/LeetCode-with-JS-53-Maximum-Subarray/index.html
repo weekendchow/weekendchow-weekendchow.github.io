@@ -1,0 +1,579 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="LeetCode,JS,easy,Array," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="53. Maximum SubarrayFind the contiguous subarray within an array (containing at least one number) which has the largest sum.
+For example, given the array [-2,1,-3,4,-1,2,1,-5,4],the contiguous subarra">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode with JS 53. Maximum Subarray">
+<meta property="og:url" content="http://yoursite.com/2018/04/08/LeetCode-with-JS-53-Maximum-Subarray/index.html">
+<meta property="og:site_name" content="MOMOMOMO’s Blog">
+<meta property="og:description" content="53. Maximum SubarrayFind the contiguous subarray within an array (containing at least one number) which has the largest sum.
+For example, given the array [-2,1,-3,4,-1,2,1,-5,4],the contiguous subarra">
+<meta property="og:updated_time" content="2018-04-09T01:31:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LeetCode with JS 53. Maximum Subarray">
+<meta name="twitter:description" content="53. Maximum SubarrayFind the contiguous subarray within an array (containing at least one number) which has the largest sum.
+For example, given the array [-2,1,-3,4,-1,2,1,-5,4],the contiguous subarra">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> LeetCode with JS 53. Maximum Subarray | MOMOMOMO’s Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">MOMOMOMO’s Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                LeetCode with JS 53. Maximum Subarray
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2018-04-08T13:02:40-04:00" content="2018-04-08">
+              2018-04-08
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="53-Maximum-Subarray"><a href="#53-Maximum-Subarray" class="headerlink" title="53. Maximum Subarray"></a>53. Maximum Subarray</h1><p>Find the contiguous subarray within an array (containing at least one number) which has the largest sum.</p>
+<p>For example, given the array <code>[-2,1,-3,4,-1,2,1,-5,4]</code>,<br>the contiguous subarray <code>[4,-1,2,1]</code> has the largest sum = <code>6</code>.</p>
+<p>More practice:<br>If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.</p>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p><strong>Dynamic programming(DP)/Kadane’s algorithm</strong><br>Maximum problem can be seen as optimization problem, thus we can use DP to solve this. Defined on Wiki, DP is a method for solving complex problems by breaking them down into simpler subproblems. It is applicable to problems exhibiting the properties of <em>overlapping subproblems</em> and <em>optimal substructure</em>. This question is only exhibit optimal substructure.</p>
+<p>Reference to the discussion <a href="https://leetcode.com/problems/maximum-subarray/discuss/20193/DP-solution-and-some-thoughts?page=1" target="_blank" rel="external">here</a>. The subproblem is to calculate <code>sum(0,i)</code> which can be either adding <code>sum(0,i-1)</code> to <code>nums[i]</code>, or not. If <code>sum(0,i-1)</code> is negative, then add it to <code>nums[i]</code> only makes the sum smaller. Thus, we add only if it’s not negative.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum(<span class="number">0</span>,i) = nums[i] + (sum(<span class="number">0</span>,i<span class="number">-1</span>) &lt; <span class="number">0</span> ? <span class="number">0</span> : sum(<span class="number">0</span>,i<span class="number">-1</span>));</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maxSubArray = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> sum = nums[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">let</span> max = nums[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">1</span>; i&lt;nums.length; i++)&#123;</span><br><span class="line">        sum =  sum &lt; <span class="number">0</span> ? nums[i]: sum + nums[i];</span><br><span class="line">        max = <span class="built_in">Math</span>.max(max, sum);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> max;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time Complexity：O(n)<br>Space Complexity：O(1)</p>
+<p>However, there is a name for this method called <a href="https://en.wikipedia.org/wiki/Maximum_subarray_problem#Kadane&#39;s_algorithm_(Algorithm_3:_Dynamic_Programming" target="_blank" rel="external">Kadane’s algorithm</a>. We can simply consider that <code>max_ending_here[i+1] = max(nums[i], nums[i] + max_ending_here[i])</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maxSubArray = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> max_ending_here = nums[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">let</span> max_so_far = nums[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">1</span>; i&lt;nums.length; i++)&#123;</span><br><span class="line">        max_ending_here = <span class="built_in">Math</span>.max(max_ending_here + nums[i], nums[i]);</span><br><span class="line">        max_so_far = <span class="built_in">Math</span>.max(max_ending_here, max_so_far);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> max_so_far;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time Complexity：O(n)<br>Space Complexity：O(1)</p>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p><strong><a href="https://en.wikipedia.org/wiki/Maximum_subarray_problem#Algorithm_2:_Divide_and_Conquer" target="_blank" rel="external">Divide and Conquer algorithm</a></strong> is another way to solve this problem. This method uses recursion to break a problem into sub-problems until they can be solved directly. The solutions are then put together to solve the original problem.</p>
+<p>Reference to discussion <a href="https://leetcode.com/problems/maximum-subarray/discuss/20372/How-to-solve-%22Maximum-Subarray%22-by-using-the-divide-and-conquer-approach" target="_blank" rel="external">here</a> and book <a href="http://ressources.unisciel.fr/algoprog/s00aaroot/aa00module1/res/%5BCormen-AL2011%5DIntroduction_To_Algorithms-A3.pdf" target="_blank" rel="external">Introduction to Algorithms, Third Edition, Chapter 4.1</a>.<br>First, we equally divide the array into two subarrays by finding the midpoint, then the maxSubarray <code>A[i,j]</code> must lie in following three places:</p>
+<ul>
+<li>entirely in the left subarray <code>A[left,middle]</code>, so that left&lt;=i&lt;=j&lt;=middle.</li>
+<li>entirely in the right subarray <code>A[middle+1,right]</code>, so that middle+1&lt;=i&lt;=j&lt;=right.</li>
+<li>crossing the midpoint, so that left&lt;=i&lt;=middle&lt;=j&lt;=right.</li>
+</ul>
+<p>If crossing the midpoint, then the result will be adding the maximum suffix subarray of the left subarray and the maximum prefix subarray of the right subarray.<br>If not crossing the midpoint, then we can just apply the same algorithm to the left and the right part respectively to find the max subarray.<br>Finally, return the maximum of those three situation.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maxSubArray = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(nums.length == <span class="number">0</span>)&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">       &#125;</span><br><span class="line">    <span class="keyword">return</span> maxSubarrayPartitioner(nums, <span class="number">0</span>, nums.length<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> crossSubArray = <span class="function"><span class="keyword">function</span>(<span class="params">array, left, middle, right</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> leftSum = -<span class="literal">Infinity</span>;</span><br><span class="line">    <span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=middle; i&gt;=left; i--) &#123;</span><br><span class="line">        sum += array[i];</span><br><span class="line">        <span class="keyword">if</span>(sum &gt;leftSum)&#123;</span><br><span class="line">            leftSum = sum;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> rightSum = -<span class="literal">Infinity</span>;</span><br><span class="line">    sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=middle+<span class="number">1</span>; i&lt;=right; i++)&#123;</span><br><span class="line">        sum += array[i];</span><br><span class="line">        <span class="keyword">if</span>(sum &gt; rightSum)&#123;</span><br><span class="line">            rightSum = sum;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> leftSum+rightSum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> maxSubarrayPartitioner = <span class="function"><span class="keyword">function</span>(<span class="params">array, left, right</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(left == right)&#123;</span><br><span class="line">        <span class="keyword">return</span> array[left];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> middle = <span class="built_in">Math</span>.floor((left+right)/<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">let</span> leftSum = maxSubarrayPartitioner(array, left, middle);</span><br><span class="line">    <span class="keyword">let</span> rightSum = maxSubarrayPartitioner(array, middle+<span class="number">1</span>, right);</span><br><span class="line">    <span class="keyword">let</span> crossSum = crossSubArray(array, left, middle, right);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.max(crossSum, leftSum, rightSum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Time Complexity：O(nlogn).</p>
+<h2 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution 3"></a>Solution 3</h2><p><strong><a href="https://en.wikipedia.org/wiki/Maximum_subarray_problem#Algorithm_1:_Brute_Force" target="_blank" rel="external">Brute Force</a></strong> is a slow and inefficient method to checks all possibilities for the solution to the problem.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maxSubArray = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> maxSumSoFar = -<span class="literal">Infinity</span>;</span><br><span class="line">    <span class="keyword">let</span> maxISoFar = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> maxJSoFar = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">let</span> len = nums.length;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;len; i++)&#123;</span><br><span class="line">        <span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> j=i; j&lt;len; j++)&#123;</span><br><span class="line">            sum+=nums[j];</span><br><span class="line">            <span class="keyword">if</span>(sum&gt;maxSumSoFar)&#123;</span><br><span class="line">                maxSumSoFar = sum;</span><br><span class="line">                maxISoFar = i;</span><br><span class="line">                maxJSoFar = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxSumSoFar;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time Complexity：O(n^2)</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
+          
+            <a href="/tags/JS/" rel="tag">#JS</a>
+          
+            <a href="/tags/easy/" rel="tag">#easy</a>
+          
+            <a href="/tags/Array/" rel="tag">#Array</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/01/LeetCode-with-JS-26-Remove-Duplicates-from-Sorted-Array/" rel="next" title="LeetCode with JS 26 Remove Duplicates from Sorted Array">
+                <i class="fa fa-chevron-left"></i> LeetCode with JS 26 Remove Duplicates from Sorted Array
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="WEEKENDCHOW" />
+          <p class="site-author-name" itemprop="name">WEEKENDCHOW</p>
+          <p class="site-description motion-element" itemprop="description">Life is Game of Luck</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#53-Maximum-Subarray"><span class="nav-number">1.</span> <span class="nav-text">53. Maximum Subarray</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-1"><span class="nav-number">1.1.</span> <span class="nav-text">Solution 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-2"><span class="nav-number">1.2.</span> <span class="nav-text">Solution 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-3"><span class="nav-number">1.3.</span> <span class="nav-text">Solution 3</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">WEEKENDCHOW</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
