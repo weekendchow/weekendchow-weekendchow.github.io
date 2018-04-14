@@ -233,6 +233,113 @@
             
               
                 
+                <a class="post-title-link" href="/2018/04/14/What-is-IIFE/" itemprop="url">
+                  What is IIFE ?
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2018-04-14T18:01:10-04:00" content="2018-04-14">
+              2018-04-14
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined.</p>
+<p>It is a design pattern which is also known as <strong>Self-Executing Anonymous Function</strong> and contains two major parts.</p>
+<p>The first is the anonymous function with lexical scope enclosed within the <em>Grouping Operator ( )</em>. This turns the code within <code>(function(){...})</code> into an expression.</p>
+<p>The second part is creating the immediately executing function expression <code>()</code>, through which the JavaScript engine will directly interpret the function.</p>
+<p>Thus, IIFE will be express like <code>(function(){...})()</code>. This pattern prevents accessing variables within the IIFE idiom as well as polluting the global scope.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>The function becomes a function expression which is immediately executed. The variable within the expression can not be accessed from outside.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> aName = <span class="string">"Barry"</span>;</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="comment">// Variable name is not accessible from the outside scope</span></span><br><span class="line">aName <span class="comment">// throws "Uncaught ReferenceError: aName is not defined"</span></span><br></pre></td></tr></table></figure>
+<p>Assigning the IIFE to a variable does not store it but its result.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> result = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name = <span class="string">"Barry"</span>;</span><br><span class="line">    <span class="keyword">return</span> name;</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="comment">// Immediately creates the output:</span></span><br><span class="line">result; <span class="comment">// "Barry"</span></span><br></pre></td></tr></table></figure>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/IIFE" target="_blank" rel="external">MDN</a></li>
+<li><a href="http://benalman.com/news/2010/11/immediately-invoked-function-expression/" target="_blank" rel="external">Ben Alman</a></li>
+<li><a href="https://stackoverflow.com/questions/8228281/what-is-the-function-construct-in-javascript" target="_blank" rel="external">stackoverflow</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018/04/12/LeetCode-with-JS-118-Pascal-s-Triangle/" itemprop="url">
                   LeetCode with JS 118. Pascal's Triangle
                 </a>
@@ -1088,7 +1195,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1098,7 +1205,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
