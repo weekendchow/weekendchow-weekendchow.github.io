@@ -1,0 +1,700 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="LeetCode,JS,interview," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="150 LeetCode Questions(easy to hard)source
+EasyMaximum Depth of Binary Tree:这道题有两种做法。第一种递归，得到左右子树的高度后在较高的那棵上加一；第二种dfs，碰到叶子节点就update当前最高高度。
+Same Tree: 判断两棵树是否相同。
+Best Time to Buy and Sell Stock II: 买股票">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode 150">
+<meta property="og:url" content="http://yoursite.com/2018/04/20/Leetcode-150/index.html">
+<meta property="og:site_name" content="MOMOMOMO’s Blog">
+<meta property="og:description" content="150 LeetCode Questions(easy to hard)source
+EasyMaximum Depth of Binary Tree:这道题有两种做法。第一种递归，得到左右子树的高度后在较高的那棵上加一；第二种dfs，碰到叶子节点就update当前最高高度。
+Same Tree: 判断两棵树是否相同。
+Best Time to Buy and Sell Stock II: 买股票">
+<meta property="og:updated_time" content="2018-04-20T22:01:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Leetcode 150">
+<meta name="twitter:description" content="150 LeetCode Questions(easy to hard)source
+EasyMaximum Depth of Binary Tree:这道题有两种做法。第一种递归，得到左右子树的高度后在较高的那棵上加一；第二种dfs，碰到叶子节点就update当前最高高度。
+Same Tree: 判断两棵树是否相同。
+Best Time to Buy and Sell Stock II: 买股票">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> Leetcode 150 | MOMOMOMO’s Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">MOMOMOMO’s Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Leetcode 150
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2018-04-20T17:48:23-04:00" content="2018-04-20">
+              2018-04-20
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="150-LeetCode-Questions-easy-to-hard"><a href="#150-LeetCode-Questions-easy-to-hard" class="headerlink" title="150 LeetCode Questions(easy to hard)"></a>150 LeetCode Questions(easy to hard)</h1><p><a href="http://bowang.name/leetcode-150/" target="_blank" rel="external">source</a></p>
+<h2 id="Easy"><a href="#Easy" class="headerlink" title="Easy"></a>Easy</h2><p>Maximum Depth of Binary Tree:<br>这道题有两种做法。第一种递归，得到左右子树的高度后在较高的那棵上加一；第二种dfs，碰到叶子节点就update当前最高高度。</p>
+<p>Same Tree: 判断两棵树是否相同。</p>
+<p>Best Time to Buy and Sell Stock II: 买股票系列中最简单的一道，只要当前值比前面的大就累加上去。</p>
+<p>Binary Tree Inorder Traversal: 中序遍历，没什么好说。要注意可能要求iterative的版本。</p>
+<p>Binary Tree Preorder Traversal: 同上。值得一提的是post order的iterative traversal比这两个都难。</p>
+<p>Linked List Cycle: 用hashmap做有点赖皮，不准用的话就快慢指针，也不难。</p>
+<p>Search Insert Position: 完全莫名的一道题目。</p>
+<p>Remove Duplicates from Sorted List: 链表的指针操作，基本功。</p>
+<p>Climbing Stairs: 最基本的dp。</p>
+<p>Roman to Integer: 很无聊的一道题，要注意的是罗马数字的表达有加和减两种形态。</p>
+<p><strong>Maximum Subarray</strong>:<br> 找规律的题目，看到大于零的数就开始加，一旦结果小于零就停止，期间查看每次加的结果是不是超过最大值。</p>
+<p>Merge Two Sorted Lists: 基本功的题目。链表的题目有个小技巧就是在头节点前面加一个dummy节点，这样会方便很多。</p>
+<p><strong>Pascal’s Triangle</strong>:<br>递归题里面比较容易的。</p>
+<p>Balanced Binary Tree: 根据定义来，首先左子树和右子树的高度差不能超过1，其次左子树和右子树必须分别是平衡树。注意这道题的复杂度根据方法的好坏有很大不同，最好的算法是O(n)时间复杂度加O(logn)空间复杂度。</p>
+<p>Convert Sorted Array to Binary Search Tree: 二分查找的变形。</p>
+<p><strong>Merge Sorted Array</strong>:<br>和merge sorted list基本一个道理，但是这道题要用到一个小技巧，因为题目要求把B直接并入A中，A足够大。所以要从尾部开始排，不然插入一个元素就是O(n)。不用担心A里面原来的值被覆盖，这个要自己体会一下。</p>
+<p>Sort Colors: 提示里面讲到一个counting sort, 我还真没想到。不过one pass的算法也不难想到，就是把所有的0放到左边，2放到右边，要用到三个指针。</p>
+<p>Binary Tree Level Order Traversal II: 二叉树的层次遍历，用两个队列，题目要求倒着输出，那么就每次把结果插到最前面。这个要求也挺莫名的。</p>
+<p>Permutations:  我把这类题目统一归类为枚举subset系列。一个做法就是递归，当前的结果就在前面的结果集合上修修改改。另外一个做法dfs，要维护一个visited列表。因为要枚举所有，基本上就是n!的复杂度了。还有一个iterative的做法，一直没能找到。</p>
+<p><strong>Plus One</strong>:<br>将一个用数组表示的数加一，主要就是实现进位，此外好像就没什么特别的了。</p>
+<p>Binary Tree Postorder Traversal: 二叉树后序遍历。</p>
+<p>Unique Path: 找路径，比较简单的dp。</p>
+<p>Binary Tree Level Order Traversal: 二叉树的层次遍历，说过了。</p>
+<p>Minimum Path Sum:  Dijkstra算法的简单版，因为只能向下或者向右，到达一个点只有两种方式，用dp就行了。最近流行的修改版是上下左右都能走，那么到达一个节点就有四种可能了。</p>
+<p>Pascal’s Triangle II: 和1区别不大。</p>
+<p>Sum Root to Leaf Numbers: 递归＋记答案。</p>
+<p>Minimum Depth of Binary Tree: 分别往左往右找，每往下一层深度就加1，update最小值。</p>
+<p>Length of Last Word: 这道题可能我没有得到。只要把原string用空格split成数组取最后一个元素就可以了嘛。</p>
+<p>Search in Rotated Sorted Array: 如果A[start]比A[end]大说明那一半是rotate过的，再比较target值确定在哪一半搜索。</p>
+<p>Valid Parentheses:  栈的应用，还是比较简单的。如果是左括号就入栈，右括号就匹配栈顶的元素，不匹配就return false。最后全匹配完如果栈里还有东西剩下也return false。</p>
+<p>Valid Sudoku: 算法很简单，实现起来要注意细节，很容易把index搞错。</p>
+<p>Subsets: 递归＋在前一次答案上加新元素。有一种解法把subset想成combination的特殊情况，combination里只要选出任意的2元组。而subset要选出所有的n元组，n从0取到整个集合的size。</p>
+<p>Longest Common Prefix: 找一组string的最长共同prefix。这道题连递归都不用，应该算很简单了。</p>
+<p>Search for a Range: 这道我用了赖皮的方法，先二分查找目标value，再向左向右扫直到发现不同的值。正确的做法应该是直接二分查找找出两个边界。</p>
+<p>Validate Binary Search Tree: 判断一棵树是否是二叉搜索树。</p>
+<p>Add Binary: 两个二进制数相加，实现题。</p>
+<p>Remove Duplicates from Sorted List II: 链表操作。</p>
+<p>Merge k Sorted Lists: 虽然是合并k个list，实际上只要会合并两个list就行了，没啥大不同。</p>
+<p>Add Two Numbers: 把两个链表的值相加，没什么难度。</p>
+<p>Valid Palindrome: 实现题。所有字符都转成lowercase，去掉空格，就变成单纯判断string是不是palindrome了。</p>
+<p>Rotate List: 先把原来的链表连成一圈，既tail.next = head, 再在指定的位置断开。</p>
+<p>Implement strStr(): 给两个string s1和s2, 找到s2第一次在s1中出现的位置。方法就是从s1头开始往后找s2的长度，如果不match就s1往后走一步。</p>
+<p>Evaluate Reverse Polish Notation: 算逆波兰式。用栈即可。</p>
+<h1 id="Medium"><a href="#Medium" class="headerlink" title="Medium"></a>Medium</h1><p>Single Number : 一个整数数组，除了一个整数出现一次其余都出现两次，找出那个整数。这个题是正确率最高的，我放在中等是因为题目要求线性时间并且不能用额外空间。解法就是把所有的元素异或一下，最后的值就是要找的数，很巧妙。</p>
+<p>Reverse Integer: 关于整型数据操作的题目都要当心细节，负数怎么处理？Overflow怎么处理？这道题有个很巧妙的解法，每次把最后一个数找出来，把原数右移一位，然后把找出来的数不断乘以10（相当于左移）。</p>
+<p>Unique Binary Search Trees: 这道题完全可以归到困难里。从题目来看很容易想到用递归加dp。但是递归的模式不容易找，一个很tricky的地方就是树的结构和节点的具体大小是没关系的，比如（1，2，3）能够成的树的数量和（4，5，6）是一样的，所以要求后者的结构树应该用num(3)而不是num(6)。题目只要找出有多少种结构没有要求真的列举出来，像这种几乎都是dp了。</p>
+<p>Populating Next Right Pointers in Each Node: 这题的一个难点就是如何找到一个节点的表兄妹，就是父亲的兄弟节点的子节点。所以递归的时候要站在父亲节点的角度帮子节点populate right pointers。</p>
+<p>Single Number II: 还是位运算，因为所有的数都出现三次，那么每一位上1的位数之和一定是3的倍数，如果某一位上多了一个1，那么这一定属于我们要找的那个数，整数类型是32位，每个数要移位32次。</p>
+<p>Remove Element: 这个题目要求in place, 小技巧就是双指针，第一个扫原数组，第二个记录新的数组位置，因为第一个数组走得快，所以不用担心原数组后面的值被覆盖。</p>
+<p>Integer to Roman: 这个题要比它的兄弟roman to integer难，因为罗马数字1～3，4，5，6～8，9分别需要不同的表达。</p>
+<p><strong>Remove Duplicates from Sorted Array</strong>:<br>同样属于remove elements 系列，双指针，没什么好说。</p>
+<p>Swap Nodes in Pairs: 反转链表系列之一，这个一定要熟练。这种题目要写准确并不容易。</p>
+<p>Symmetric Tree: 这道题很容易走进一个错觉。因为一棵树左右对称的条件是左子树和右子树对称。所以我们想当然地认为左子树的左子树和右子树也要对称。其实是左子树的左子树和右子树的右子树对称。这道题的狡猾之处就在于只有根节点的情况是特殊的，如果题目改成，判断两棵树是否对称，那么中招的人会少很多。</p>
+<p>Gray Code: 递归＋找规律，其实蛮难的，我是真的找不出来。</p>
+<p>N-Queens II: 递归，n!复杂度，找到一个正确解就count++, 没什么好办法。</p>
+<p>Generate Parentheses: 摆明了用递归，但是怎么构造很有讲究。这道题需要直接build string，记录用掉的左括号和右括号，一旦不符合要求直接return，符合要求的就加到result里。这是递归系列里面比较特殊的一题。</p>
+<p>Best Time to Buy and Sell Stock: 这个算法不容易想到。从左往右扫，不断更新最低点，利润就是当前价位减去最低点，当然利润也要不断更新。</p>
+<p>Rotate Image: 一层一层地转，题目要求in place，就需要用一个临时变量。数组的下标容易搞混。</p>
+<p>Linked List Cycle II: 如果用hashmap那就和第一问没区别了，用快慢指针会得到一个很巧妙的办法，如果没做过的话我是死也想不到的。</p>
+<p>Search a 2D Matrix: 从排列规律的矩阵里找一个数，当然不能傻傻地一个一个找。又是一个找规律的题目。</p>
+<p>Container With Most Water: 这道题有O(n)的解法。双指针先分别指向头尾，由于容量是受限于较小的一边的，所以要想得到比当前更大的容量只有小的那个指针往中间移。这样可以省去许多不必要的尝试。</p>
+<p>Set Matrix Zeroes: 一个matrix, 如果某个地方的值是0，就把这个数所在的行和列都设成0。要求不使用额外空间。方法就是把第一行和第一列用来存储对应的行和列是否有0存在，如果有0，就在相应位置上标记0。首先第一步是看第一行和第一列中本身是否有0，接着扫描两次矩阵，第一遍设置标记位，第二遍根据标记位决定某个位置是否要归零。最后根据第一步的结果决定是否把第一行和第一列归零。这道题的精髓在于把第一行和第一列作为标记位覆盖原来的值不会影响结果。</p>
+<p>Spiral Matrix II: 构造一个螺旋式的矩阵。这道题我的解法受到game design课的影响。在current位置上先往右走，走不动了往下走，再走不动往左走，再走不动往上，再往右，循环直到current的值满足要求。</p>
+<p>Search in Rotated Sorted Array II: 找出start，end，middle，比较start和middle，middle和end，找出排序正常的那一半。如果有重复，只需要start＋＋，继续比剩下的。</p>
+<p>Remove Duplicates from Sorted Array II: 和1一样，唯一区别加个counter。</p>
+<p>Path Sum: 找一条从树根到叶的路径，沿路的值加起来是指定值。递归做法：当前节点的值加上父亲节点的累计值为当前节点的累计值。然后只要左子树或右子树中存在一条路径就返回true。</p>
+<p>Combinations: 找规律＋利用先前结果。每次都从(n,k=0)开始做。</p>
+<p>Remove Nth Node From End of List: Fast and slow runner. 需要三个指针，fast，slow和pre。需要删除节点的基本都要用到pre。</p>
+<p>Palindrome Number: 判断一个integer是否是回文。算法很容易想到，细节很难把握好。</p>
+<p>Path Sum II: 递归回溯，需要注意的是每次递归调用都要新create一个path，而不能在原path上改动，不然所有的调用都变成在用同一个path，完全乱套。</p>
+<p>Unique Path II: 需要一些观察力，有obstacle的地方当然path是0，没有的地方还是和之前一样算。需要注意的是第一行和第一列需要先设定好，并不像I中那样全设成1。</p>
+<p>Longest Consecutive Sequence: 从无序的数列中找出最长的连续数列的长度，用O(n)时间。这种很诡异的时间限制基本就要想到hashmap, 这道用hashset就能做，因为只要存一个value。全存到hashset以后遍历hashset里的值，分别往左往右找，找到连续的值就删，因为包含一个特定数的序列只有一个（仔细体会）。找不到了就返回序列长度。</p>
+<p>Converted Sorted List to Binary Search Tree: 注意题目是说链表而不是数组，要找到middle就要快慢指针，之后就是递归了。要注意边边角角的地方。</p>
+<p>Triangle: 递归＋二维dp记答案。当前点的最小值就是下一层左右相邻的较小者加上当前点的值。</p>
+<p>Count and Say: 很奇怪的一道题。循环encode给定string，照着要求做就行了。</p>
+<p>Subsets II: 和I的区别在于有duplicates，而结果不能有重复。偷懒的办法就是往results里加的时候判断是不是已经存在。高效一点的做法是先排序，然后如果碰到重复的数字就只加旧结果中不包含该数字的条目。</p>
+<p>Binary Tree Zigzag Level Order Traversal: 层次遍历，用两个队列，注意往队列里加元素时的顺序。</p>
+<p>Combination Sum: 典型的递归回溯，注意和3sum，4sum的异同。另外这些题目都用到的小技巧是先把目标数组排序。</p>
+<p>Partition List: 需要一定观察力。其实就是找到第一个大于等于x的数，把后面那些小于x的数插到这个数前面。</p>
+<p>Construct Binary Tree From Inorder and Postorder Traversal: 先通过postorder找到根节点，再在inorder里找到这个节点，从而找到左右子树的start和end。</p>
+<p>Reverse Linked List II: 这类题目做到bug free很不容易。要记下几个指针，pre（reverse前的节点），start（开始reverse的节点），cur（当前节点），last（当前节点的前一个节点），next（当前节点的下一个节点）。</p>
+<p>N-Queens: NP问题，递归加回溯。</p>
+<p>Unique Binary Search Trees II: 和第一问的思路大致一样，区别在于这里要构造出所有的树，所以要使用一个offset变量来正确构建右子树。</p>
+<p>Insertion Sort List: 首先要知道什么是insertion sort。用链表做的方法是新建一个头节点然后依次插入原来链表中的节点。如果直接在原链表上修改会非常麻烦。</p>
+<p>Permutation II: 求全排列加去重。递归＋回溯，唯一的难点在于去重。其实重复本质上是不存在的，如果我们给每个数一个ID，那么即使它们的value一样，也没有重复。但是我们没办法给每个数编一个ID，所以只能规定一种排列的顺序。换句话说，重复的数只能有一种排列方法。最终的实现就是把原数组排序，在递归的时候先判断一个数是否和他前面的重复，如果重复，只有在他前一个数已经用过的情况下才使用这个数。</p>
+<p>Reverse Nodes in k-Group: 每k个节点就反转一下。说起来容易，做起来要bug free真是难，还是要多练。</p>
+<p>Combination Sum II: 递归＋回溯。注意去重，在一个level里如果用了一个数就要跳过所有之后所有的重复值。</p>
+<p>ZigZag Conversion: 有多少row就开多少个stringbuilder，然后根据规则把字符插入对应的stringbuilder，要注意当前是在向哪个方向折。</p>
+<p>Anagram: 首先要理解什么是anagram, 即一个string的不同permutation。其次要找一个省时间的算法，hashmap。如果两个字符串排序结果相同，则视为有同一个key，加到hashmap里相应的条目，最后把hashmap里面value中包含两个以上string的条目加到结果里。</p>
+<p>Longest Substring Without Repeating Characters: 找规律里面比较容易的一题。找出最长的无重复字符的substring。遍历整个字符串，如果碰到重复，那么从靠左边的那个重复的字符的地方重新计算长度。复杂度应该是O(n)</p>
+<p>Scramble String: 注意到scramble是递归定义的，那么当然用递归来做。s1的左边部分既可以是s2左边的scramble也可以是s2右边的scramble。有些地方可以优化，比如把s1和s2排序，排出来的结果不一样那么可以直接返回false；如果s1和s2相同，可以直接返回true。</p>
+<p>Clone Graph: leetcode上面关于图的题目好像很少，这道题让拷贝一个图，如果没做过真的没什么头绪。拷贝的本质是把原来的节点全部复制一遍，包括节点的值以及各个节点之间的关系。可以参考copy linkedlist, 先遍历一次，把所有节点存到一个hashtable，<old node,="" new="" node="">，再次遍历的时候建立new node之间的关系。进一步地，可以只遍历一次。用BFS的话如果下一层的neighbor在表里找不到，就新建节点，并且存入表中，以后再次碰到那个点就不需要再新建。用DFS比较简洁，但是要用到递归，简单来说就是当你遍历到一个neighbor的时候，假设该节点及其下层的信息已经全部拷贝完成了，你只需要把它添加到当前节点的neighbor list里即可。</old></p>
+<p>Permutation Sequence: 求一个数组所有permutation中的第k个。当然可以把permutation全列出来再找。另外一个方法也就是能通过大集合的要靠观察，因为所有的组合是按照从小到大的顺序来的，那么第一位上的数字取决于k/(n-1)!，以此类推。要注意后来可以用的数越来越少，所以要用一个list，不断更新permutation里还没被用过的数。</p>
+<p>Sudoku Solver: N-queen问题的复杂版。DFS加保存答案。注意由于题目说只可能有一个解，那么只要找到一个解就要return。不然会超时。</p>
+<p>Longest Palindromic Substring: 先reverse string，然后求它和原来string的最长公共子串。复杂度O(n^2)，结果超时了，没想到更好的办法。</p>
+<p>Spiral Matrix: 和II基本一样，区别就是这道题要求构造出矩阵。</p>
+<p>Word Break: 通过借助字典实现分词。DFS+HashMap记答案。</p>
+<p>Restore IP Addresses: 给一串数字，求它能不能构成一个ip地址。DFS即可。要注意判断一个分割是不是合法除了要在0~255直接外，也不能有冗余的0,比如010这种。还有一定要正好分成四段才是有效ip地址。</p>
+<p>Sort List: 将一个链表进行归并排序。方法就是先分成两段（用双指针），把每一段分别递归排序后再merge两段。</p>
+<p>Simplify Path: 给一个目录，要求简化，也就是去掉冗余的”..”和”.”。用栈来做，要注意一些corner case。尤其当目录为空字符串的时候要简化成”/”。</p>
+<p>Interleaving String: 判断一个string是否是由另外两个string组合而成。用dp解。如果s3[i+j]匹配s1[i]或者s2[j]那么就能基于上一个值判断dp[i][j]是否为真。注意只要以上一种情况为真那么dp[i][j]就为真，如果第一种情况为假则还要判断第二种情况。</p>
+<p><strong>Two Sum</strong>:<br>一个数组里面找两个数加和为指定数。注意要求返回的是数字所在的index。另外要注意每个数只能用一次。</p>
+<p>Word Ladder: 词语接龙。注意此题不能用dfs而要用bfs，因为要求的是最短距离。另外已经找到的词语可以不用再做，因为同一个词语到target的最短距离只有一种。</p>
+<p>Substring with Concatenation: 本质上就是字符串匹配。算法复杂度O(n^2)，但是有很多可以优化的地方，比如用一个表储存题目里的字符串数组。最后1700ms过大集合，应该是刚刚好。如果过不了也不用太在意。</p>
+<p>3Sum: 和3Sum closest没有什么不同，还是一层循环加双指针。复杂度O(n^2)</p>
+<p>Decode Ways: 把一串数字解码成字符。很容易想到用dp来做。在当前位置上可能有两种解码方式，即一位数或两位数。两位数的解码必须满足数字在10到26之间，一位数的解码要满足该数不为0，如果同时满足两个要求那么就是两种情况的和： dp[i] = dp[i-1]+dp[i-2]</p>
+<p>Reverse Words in a String: 把一段话里面的词语逆序输出。这道题看来看去都没抓到点在哪里，只要把原字符串split成一个string数组，然后逆序遍历数组就可以了，难道是考split中的正则表达式？</p>
+<p>Text Justification: 对一段话按照格式要求重新排版。细节题，感觉这种题目弄清题目要求很重要，所以可能要多问问题。算法上没有难度，需要很多的字符串处理。</p>
+<p>Word Search: 在一个二维数组里面找指定的字符串，可以上下左右地找。BFS和DFS都可以，需要一个map来保存已经访问过的节点。</p>
+<h1 id="Hard"><a href="#Hard" class="headerlink" title="Hard"></a>Hard</h1><p>Populating Next Right Pointers in Each Node II:  如果有第一问作铺垫可能难度会稍稍下降。但是也有可能被第一问所影响而走上错误的道路。首先一个右节点的next不一定是他伯父的左儿子，也不一定是右儿子，甚至不一定是他伯父的儿子（可能是他父亲的堂兄弟的儿子）。所以一个节点的父亲的next如果没有儿子，就找下一个next。其次populate的顺序不再是先左子树再右子树，如果先populate左子树，右边的next还没有完全连上，可能会误把next设成null，导致下面连锁错误。这个需要自己体会。</p>
+<p>Trapping Rain Water: 这道题需要很强的观察力。普通的做法用栈做比较花时间。可以先从左往右扫找到每个元素的左边最大值，再从右往左扫找到右边最大值，然后每个格子的蓄水量根据两个最大值里面较小的那个来。这个方法在好几道题目里用到，值得记一下。</p>
+<p>Jump Game: dp+一定的观察力。这道题有O(n)的算法。方法就是从后往前做dp。不断更新最小的能jump到尾部的index。如果一个index能够得到当前的最小index，那么该index就变成最小index，不能够到就设成false。</p>
+<p>Flatten Binary Tree to Linked List: 相当另类的一道题，把一棵二叉树“撸”成只有一边，需要一定的观察力。用递归来做，每次都分两步，先把树拆成左右两边，把左子树接到原来的右边，把左子树处理好，再把右子树接上去，再处理右子树，而处理左右子树的步骤可以递归。要注意base case应该怎么返回，我觉得这是递归里面比较难的一题。</p>
+<p>3Sum Closest: 和2sum做法完全不同。用递归＋回溯会超时。正确做法是排序，然后先取一个数，剩下两个用双指针，小了就左指针右移，大了就右指针左移。O(n^2)的复杂度。递归回溯应该是n选3，所以是O(n^3), 这个不是很确定，如果有错请指出。</p>
+<p>Edit Distance: DP 里面比较难的一题，递推关系很难找。其实仔细想想和climb stairs有点相似。从word1变成word2的最后一步总共有三种可能，加一个字符，减一个字符，或改一个字符。假设dp[i][j]代表word1前i个字符转换到word2前j个字符的距离，那么整个步骤无非就是这些可能1. 先得到dp[i-1][j-1]并且把word1[i]换成word2[j]; 2. 得到dp[i][j-1]并且word1加一个字符；3. 得到dp[i－1][j]并且word1删一个字符。注意在第一种情况里，如果word1[i]==word2[j]，那就不用换了，距离和dp[i-1][j-1]是一样的。综合这三种情况，取其中的最小值。</p>
+<p>Gas Station: 经典神题，需要极强的观察力。如果能联系到maximum subarray, 那么已经离答案很近了。首先如果所有的gas减去cost大于0，那么肯定存在一个解，反之则不存在。如果有解，那么一定要找到最大序列的开端，gas－cost小于0的肯定不能作为起始点，其次在累加过程中gas一旦不够就直接从下一个gas－cost大于0的station开始找，直到扫完整个数组。为什么找到的这个就是解？用反证法，首先我们已经知道必然有一个解，而这个数之前的都不可能是解，而此数是接下来最大序列的开端，也就是任何从他之后开始的数列不可能累积出更多的gas，既然答案不在之前也不在之后，就只可能是该点了。</p>
+<p>Jump Game II: 这道题用贪心算法做，复杂度是O(n)。在当前步探索下一步能够到的最远范围，直到覆盖到最尾部。虽然很简单但是不容易想到。</p>
+<p>Recover Binary Search Tree: 此题的特别之处在于，在前序遍历时要用一个指针记录前一个节点的值。这在一般树的递归遍历中比较少见到。</p>
+<p>Distinct Subsequences: 给两个string S和T，判断S中出现subsequence为T的情况数，比如S=”rabbbit”, T=”rabbit”, 则返回3。很明显用dp做。但是递推关系想了很久才想通。设dp[i][j]是S的至第i位包含T的至第j位的subsequence数。那么dp[i][j]至少是等于dp[i-1][j]的，即S的第i位完全无用，至少还能用前i-1位，如果S[i]==T[j]，那么除了靠前i-1位匹配j，还可以让前i-1位匹配T的前j-1位，让S[i]匹配T[j]。dp的递推关系至关重要，有时候把一个条件转换成递推关系需要很强的观察力并且要充分理解题目里的限定条件。</p>
+<p>Copy List with Random Pointer: 这是一道很好的题目，再次证明hashmap是多么好用。深度拷贝一个带有random指针的链表，即每个节点除了包含next指针外还有一个random指针指向任意元素。如果拿上来直接做那么要多做一个random的节点，而这个random本应该在链表里而不是额外加出来的。所以要先做一个hashmap把所有的节点存入，之后需要用到哪个节点从hashmap里面取，这样可以重复取用一个节点而不用另外创造多余的拷贝。</p>
+<p>Best Time to Buy and Sell Stock III: 现在你可以买进卖出各两次，求最大利润。直观的想法就是分成两段，分别求两段的最大值，然后在所有的最大值里面取最大值。如果按照I里面的方法做就是O(n^2)。所以要用到dp。首先存每个点左边的最小值和右边的最大值，再按照I里面的方法求每个点左边和右边的最大利润，最后扫一遍，求出两边利润和的最大值。复杂度是O(n)。</p>
+<p>First Missing Positive: 一个数组，找出最小的不在数组中的正整数。要求O(n)复杂度并且不能用额外空间。这就直接否决了排序和hashmap。解法其实是bucket sort，但是是in place的，把对应的数换到相应的位置上，比如A[5]是“2”，那么把“2”换到A[1]，然后把A[1]里的数换过来，如果换过来的是“6”，那么就停止，不然就继续换。最后扫一边，看哪个位置上的数不对就是first missing。不确定这个算法是否是O(n)，但确实是好方法。</p>
+<p>Sqrt(x): 很不错的题目。实现开平方。如果你能发现此题本质上是查找那就小菜一碟了。即从0到x，找一个数，它的平方是x。既然是查找，那就二分查找。要注意这个数的平方可能溢出，所以要将平方声明成long。</p>
+<p>4sum: 此题有三种做法。第一种递归DFS＋回溯，超时。第二种和3sum一样，唯一不同是先两重循环求出前两个数的和，再用头尾指针得到剩下两个数，复杂度O(n^3)。第三种比较难想到。先双重循环把所有的一对数存入hashmap，再从hashmap里找一组pair所对应的另一组pair。复杂度O(n^2)，但是这里要解决很多问题，比如去重，比如一个数被用了多次，正常的面试时间不太可能完成。</p>
+<p>Binary Tree Maximum Path Sum: 求二叉树中加和最大的路径。此题非常巧妙。分几步来考虑，首先特定节点所在的加和最大的路径可能有几种情况（考虑有负数的可能性），1包含这个点以及左边的一条最大路径，2包含这个点以及右边的一条最大路径，3.包含这个点以及左边和右边的最大路径，4.只有这个点自己。所以在访问这个点的时候要计算所有这些情况并update最大值。其次递归的返回值不能包括情况3，而只能是1，2，4中的最大值。这一点要仔细体会。</p>
+<p>Longest Valid Parentheses: 从一串圆括号里找出最长有效长度。很容易想到用栈来做。但是有几个tricky的地方。此题最大的挑战就是要判断一个合法的括号串从何处开始。如果只是读到”)”就出栈，并以那个index为起始就会漏掉之前的合法串。所以在出栈以后要以栈顶元素的index为起始，即最近的还未被匹配的左括号。如果此时栈空了怎么办？此时要考虑最近的合法串从哪里开始，如果在某个时刻右括号的数量多过左括号，那么最近的合法串一定从最右的右括号右边开始了。</p>
+<p>Candy: 一群小朋友排成一列，每个人有一个分数，分数比相邻的高的小朋友要比他的分数低的邻居拿到更多糖，每个人至少有一颗糖，求至少要发多少糖。此题需要很强观察力。首先能发现分数处在波谷的小朋友可以只拿一颗糖，而处在波峰的小朋友要根据左右波谷距离远近决定发给他几颗糖，在波峰波谷之间的小朋友拿糖的数量只和波谷有关。而一个小朋友拿糖的数量只取决于一个波谷－波峰－波谷区间。这样就能发现简便的算法了，先从左往右扫，如果上升就一直累加糖的数量，一旦下降就重置为1；再从右往左扫，做同样的事，只有在波峰的地方要比较从左边扫过来的值和右边扫过来的值，取其中的较大值。</p>
+<p>Minimum Window Substring: 从string A里面找到最小的window size，里面包含了string B中的所有字符。要求O(n)复杂度。由于并不在乎字符出现的顺序，所以只要统计出string B里面所有的字符及出现次数。用双指针扫A，如果没有包含全部就尾指针向后移，找到第一个解以后尾指针每次往后移一步，头指针可以不断往后移，略过多余的字符。这个算法的背后思想是找到可能的结束位置（即此时B里面所有的字符都被包括了），然后压缩起始位置看看能不能找到更短的长度。</p>
+<p>Palindrome Partition: 找出把一个string分割成palindrome的最小分割。直觉上用dp来做。定义index i处的最小分割：从头部的字符开始往后扫，记当前字符为j，一旦发现j和i构成palindrome，就试着在j处分割，然后加上j前面部分的最小分割（递归定义，在前面的计算中已经保存）作为一个可能的分割，一直尝试到j＝＝i，纪录可能分割中的最小值，保存为i处的最小分割。如何知道j到i构成palindrome？需要对string作预处理，同样用dp来做。总的复杂度为O(n^2)。</p>
+<p>Median of Two Sorted Array: 求两个排序过的数组的中位数。因为题目要求log(n)的复杂度，所以变得神烦。思路就是每次把两个数组各分成两半，根据不同情况去掉不可能是解的那部分。具体实现要注意边界条件，下标等等，非常之繁琐。一个不错的实现详见这里。</p>
+<p>Divide Two Integers: 不用除号，乘号，取模实现除法。神烦的题目。用竖除法做，要注意除的过程中数位要对齐，终止条件是什么，中间和末尾的0如何处理，等等。最后的tricky的部分包括符号问题，溢出问题。如果用int的话，judge会阴险地给出-2^31 / -1这样的case，因为int是从-2^31~2^31-1，所以这种情况不能转化成2^31/1, 最好的办法是全部cast成long来做。</p>
+<p>Merge Intervals: 合并一系列有重合的集合。难点在于每个集合的大小及覆盖范围都是以随机顺序出现的。一个好方法就是先把所有集合按起始点位置排序，然后只要把有重合的集合并入当前处于处理中的集合，直到不能合并为止，把处理好的集合写入答案，这样做的好处就是新处理一个集合时就不用再去关心是否可能和之前的集合有交集。</p>
+<p>Insert Intervals: 和上面那道差不多，注意何时插入的边界条件。同样是扩充当前的集合：不断和后面的比较，如果重合，就“吃掉”后面的。</p>
+<p>Word Break II: 和I不同的是这道题要返回所有可能的分割结果，单纯地用暴力DFS会超时。主要有两种做法，第一种就是纪录每一次递归的中间结果，存到hashmap, 以后再遇到相同的index就可以直接把结果拿来用。第二种是DFS加剪枝，建一个boolean的数组，在某个index的时候，如果接下来的搜索没有任何结果，那么就把dp［index］设为false，之后如果再访问到这个分枝就直接跳过。两者的区别是前者把所有可能和不可能的分枝都纪录下来，而后者仅仅纪录不可能的分枝，对于有解的分枝还是会有重复搜索的问题存在。但实际情况是两者的花费时间几乎一样，所以结论就是如果丢弃了不可能的分枝那么搜索可能的分枝基本不花时间。因为解的数量比起分枝的所有可能性还是小很多。</p>
+<p>Surrounded Regions: 给一个二维board，要求把被’X’包围的’O’都变成’X’。算法是从最外面的’O’开始搜索把和外面联通的’O’都标记，然后把所有没标记过的都变成’X’。注意搜索的时候要用BFS, 用DFS会stack overflow。</p>
+<p>LRU Cache: 设计一个cache, 实现least recent used方案。即保存最近访问过的数据。很容易想到需要一个队列和一个表，队列用来记录访问时间顺序，表用来查找。但是用java自带的队列不能很好的实现O(1)复杂度的删除，因为需要更新的节点可能在队列中间。所以需要自定义一个双向链表。此外还要注意链表指针的操作，记录head和tail两个节点，删除节点要分删除头节点和非头节点两种情况；还有一些细节比如如果访问的节点已经在尾部就不用更新等等。</p>
+<p>Wildcard Matching: 字符串匹配，？可以匹配一个任意字符，<code>*</code>可以匹配任意字符串。一开始用二维dp，因为<code>*</code>的特殊性，内部还要加一层循环，所以复杂度O(n^3)，超时。正解比较复杂，在出现<code>*</code>之前必须一一匹配成功，不然就返回false，这点容易理解；一旦出现<code>*</code>，那么p就从<code>*</code>后面的字符开始与s当前字符开始匹配，目标把下一个<code>*</code>出现之前的所有字符都匹配掉。这里有个地方需要很强的观察力，如果s中有多余的字符是没问题的，因为用<code>*</code>就可以匹配，但是p中有多余的字符就不行了。所以p中一旦有不匹配的地方就回到<code>*</code>开始的地方继续和之前的s的后面那个字符开始匹配；这里又有一个问题，如何知道p中的字符串被匹配到s中正确的位置上了呢，比如s里面有两处地方可以匹配当前的p段，那么我们匹配了较早出现的一处。如果p段的后面不再有<code>*</code>号，那么这当然是错的，我们必须匹配后面一处，让前面的那一处用之前的<code>*</code>号顶掉，而如果p段后面还有<code>*</code>号，那么就无所谓了，我们可以让下一处以及两处之间的地方都用后面那个<code>*</code>来匹配，接着从下个一<code>*</code>号后面开始匹配。这个算法的复杂度是O(n^2)。此题的本质是要要为p中所有不是<em>的字符找到合适的匹配，s有没有匹配完不用担心，只要p后面有个`</em>`，那么s全部能够匹配了。</p>
+<p>Regular Expression Match: 和上面的wild card match很像，区别是<code>*</code>号不再匹配任意长度的任意字符，而是任意长度的<code>*</code> 的前驱字符。用dp做，复杂度O(n^2)。难点还是在<code>*</code>号的处理。分三种情况，1. ＊号代表0个前驱字符，那么d[[i][j] = dp[i][j-2]。2. <code>*</code>号匹配一个前驱字符，那么dp[i][j] = dp[i][j-1]。3. <code>*</code>号代表一个以上前驱字符，那么必须s[i] == p[j-1]或者p[j-1]==’<code>*</code>’,即s的当前字符必须匹配<code>*</code>的前驱字符, 然后dp[i][j] = dp[i-1][j]。另外要注意i和j都是从s或p的第一个字符开始匹配的，所以要先确定空字符匹配的情况，事实上p是可以匹配空字符的，所以要加上这个边界条件。这种情况也在很多题目中出现，如果dp[i][0]或者dp[0][j]可能有特殊的情况的话要先行确定。</p>
+<p>Word Ladder II: 号称是leetcode上最难的题目。其实算法的基本框架和word ladder是一样的，都是bfs，但是这里要返回整个路径，所以要构造一个node class，包含其父节点的指针。接下来就是优化，第一步是预处理整个graph，把每个节点的ajacent list找出来放再一个hashmap里。之后做bfs的时候就可以直接拿来用了，这个部分是O(n^2)。然后要做的是去重，这部分是tricky的地方，需要一定观察力。因为不同的路径会重复访问同一个节点，所以要维护一个visited表，但不是所有visited过的节点都不用再访问了。比如dog -&gt; dig, dag -&gt; dig，两次访问到dig，但是因为是两种不同路径所以两个都可能是答案。不能舍弃。那什么情况下不需要重复访问呢？比如 dog -&gt; dig -&gt; dog。这显然是个没用的循环，更一般地，如果某个节点在更早的层次上被访问过了，那么在后面的层次再看到就不用管了，因为在那个路径上加上该节点一定比该节点第一次出现的那个路径长。</p>
+<p>Max Points On a Line: 这道题恶心的地方在有很多重复的点。我的做法是先排序，然后双重循环。对每一个位置上的点，先统计有多少重复，然后遍历所有其他位置上的点，把斜率作为key, 点的数量（包含重复）作为value存到hashtable；再遍历hashtable找出包含该点的经过最多点的直线。遍历完所有点后就能得到最大值。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
+          
+            <a href="/tags/JS/" rel="tag">#JS</a>
+          
+            <a href="/tags/interview/" rel="tag">#interview</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/20/Something-about-Big-O/" rel="next" title="Something about Big-O">
+                <i class="fa fa-chevron-left"></i> Something about Big-O
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="WEEKENDCHOW" />
+          <p class="site-author-name" itemprop="name">WEEKENDCHOW</p>
+          <p class="site-description motion-element" itemprop="description">Life is Game of Luck</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#150-LeetCode-Questions-easy-to-hard"><span class="nav-number">1.</span> <span class="nav-text">150 LeetCode Questions(easy to hard)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Easy"><span class="nav-number">1.1.</span> <span class="nav-text">Easy</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Medium"><span class="nav-number">2.</span> <span class="nav-text">Medium</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hard"><span class="nav-number">3.</span> <span class="nav-text">Hard</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">WEEKENDCHOW</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
