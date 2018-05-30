@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="LeetCode,JS,easy,Array," />
+  <meta name="keywords" content="interview," />
 
 
 
@@ -84,16 +84,37 @@
 
 
 
-<meta name="description" content="26. Remove Duplicates from Sorted ArrayGiven a sorted array, remove the duplicates in-place such that each element appear only once and return the new length.Do not allocate extra space for another ar">
+<meta name="description" content="Web
+HTTPS negotiation steps?
+
+
+Client request a SSL connection.
+Server response with the certificate(public key;SSL done).
+Client validates the certificate/public key.
+Client generates a symmetric key">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode with JS 26 Remove Duplicates from Sorted Array">
-<meta property="og:url" content="http://yoursite.com/2018/04/01/LeetCode-with-JS-26-Remove-Duplicates-from-Sorted-Array/index.html">
+<meta property="og:title" content="Interview questions">
+<meta property="og:url" content="http://yoursite.com/2018/04/21/Interview-questions/index.html">
 <meta property="og:site_name" content="MOMOMOMO’s Blog">
-<meta property="og:description" content="26. Remove Duplicates from Sorted ArrayGiven a sorted array, remove the duplicates in-place such that each element appear only once and return the new length.Do not allocate extra space for another ar">
-<meta property="og:updated_time" content="2018-04-01T16:54:27.000Z">
+<meta property="og:description" content="Web
+HTTPS negotiation steps?
+
+
+Client request a SSL connection.
+Server response with the certificate(public key;SSL done).
+Client validates the certificate/public key.
+Client generates a symmetric key">
+<meta property="og:updated_time" content="2018-04-22T22:28:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode with JS 26 Remove Duplicates from Sorted Array">
-<meta name="twitter:description" content="26. Remove Duplicates from Sorted ArrayGiven a sorted array, remove the duplicates in-place such that each element appear only once and return the new length.Do not allocate extra space for another ar">
+<meta name="twitter:title" content="Interview questions">
+<meta name="twitter:description" content="Web
+HTTPS negotiation steps?
+
+
+Client request a SSL connection.
+Server response with the certificate(public key;SSL done).
+Client validates the certificate/public key.
+Client generates a symmetric key">
 
 
 
@@ -111,7 +132,7 @@
   };
 </script>
 
-  <title> LeetCode with JS 26 Remove Duplicates from Sorted Array | MOMOMOMO’s Blog </title>
+  <title> Interview questions | MOMOMOMO’s Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -231,7 +252,7 @@
             
             
               
-                LeetCode with JS 26 Remove Duplicates from Sorted Array
+                Interview questions
               
             
           </h1>
@@ -243,8 +264,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2018-04-01T12:23:20-04:00" content="2018-04-01">
-              2018-04-01
+            <time itemprop="dateCreated" datetime="2018-04-21T13:13:38-04:00" content="2018-04-21">
+              2018-04-21
             </time>
           </span>
 
@@ -271,13 +292,23 @@
       
 
       
-        <h1 id="26-Remove-Duplicates-from-Sorted-Array"><a href="#26-Remove-Duplicates-from-Sorted-Array" class="headerlink" title="26. Remove Duplicates from Sorted Array"></a>26. Remove Duplicates from Sorted Array</h1><p>Given a sorted array, remove the duplicates <strong><em>in-place</em></strong> such that each element appear only once and return the new length.<br>Do not allocate extra space for another array, you must do this by <strong>modifying the input array</strong> <strong><em>in-place</em></strong> with O(1) extra memory.</p>
-<p><strong>Example:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Given nums = [1,1,2],</span><br><span class="line"></span><br><span class="line">Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.</span><br><span class="line">It doesn&apos;t matter what you leave beyond the new length.</span><br></pre></td></tr></table></figure></p>
-<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>Delete duplicate elements from Array using <strong>Array.Splice()</strong>.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> removeDuplicates = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> i, j, prev, len = nums.length;</span><br><span class="line">    <span class="keyword">let</span> removed = [];</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;len; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums[i] === prev)&#123;</span><br><span class="line">            removed.push(i);</span><br><span class="line">        &#125;</span><br><span class="line">        prev = nums[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(j = removed.length<span class="number">-1</span>; j&gt;=<span class="number">0</span>; j--)&#123;</span><br><span class="line">        nums.splice(removed[j],<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> nums.length;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>For a sorted array, we can use two pointers i, j to find the duplicate.<br>If nums[i] == nums[j], we increment j to skip the duplicate.<br>If nums[i] !== nums[j], we know the duplicate run has ended so we copy the new value nums[j] to nums[i+1].<br>i is then incremented and we repeat until j reached the end of the array.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> removeDuplicates = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (j=<span class="number">1</span>; j&lt;nums.length; j++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[j] !== nums[i]) &#123;</span><br><span class="line">            nums[++i] = nums[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i+<span class="number">1</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time Complexity：O(n)<br>Space Complexity：O(1)</p>
+        <h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><ul>
+<li><strong>HTTPS negotiation steps?</strong></li>
+</ul>
+<ol>
+<li>Client request a SSL connection.</li>
+<li>Server response with the certificate(public key;SSL done).</li>
+<li>Client validates the certificate/public key.</li>
+<li>Client generates a symmetric key(session key) and transmits it to the server.</li>
+<li>SSL session is established(finished).</li>
+</ol>
+<p><a href="https://www.youtube.com/watch?v=po3zYOe00O4" target="_blank" rel="external">HTTP/HTTPS</a><br><a href="https://www.youtube.com/watch?v=WNlraSBwlh8" target="_blank" rel="external">hand shake</a></p>
+<ul>
+<li><strong>What is CORS(Cross-Origin Resource Sharing)?</strong><br>Uses additional HTTP headers to let a user agent gain permission to access selected resources from a server on a different origin (domain) than the site currently in use. A user agent makes a <code>cross-origin HTTP request</code> when it requests a resource from a different domain, protocol, or port than the one from which the current document originated.</li>
+</ul>
+<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h2 id="CSS-HTML"><a href="#CSS-HTML" class="headerlink" title="CSS/HTML"></a>CSS/HTML</h2><h2 id="Data-Structure"><a href="#Data-Structure" class="headerlink" title="Data Structure"></a>Data Structure</h2><h2 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h2><h2 id="Behavior"><a href="#Behavior" class="headerlink" title="Behavior"></a>Behavior</h2><h2 id="Slef-Project"><a href="#Slef-Project" class="headerlink" title="Slef/Project"></a>Slef/Project</h2><ul>
+<li>Why was there a gap in your employment?</li>
+</ul>
 
       
     </div>
@@ -299,13 +330,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
-          
-            <a href="/tags/JS/" rel="tag">#JS</a>
-          
-            <a href="/tags/easy/" rel="tag">#easy</a>
-          
-            <a href="/tags/Array/" rel="tag">#Array</a>
+            <a href="/tags/interview/" rel="tag">#interview</a>
           
         </div>
       
@@ -314,16 +339,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/11/How-to-create-a-blog-with-Hexo-GitHub/" rel="next" title="How to create a blog with Hexo + GitHub">
-                <i class="fa fa-chevron-left"></i> How to create a blog with Hexo + GitHub
+              <a href="/2018/04/20/Leetcode-150/" rel="next" title="Leetcode 150">
+                <i class="fa fa-chevron-left"></i> Leetcode 150
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/08/LeetCode-with-JS-53-Maximum-Subarray/" rel="prev" title="LeetCode with JS 53. Maximum Subarray">
-                LeetCode with JS 53. Maximum Subarray <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/22/Useful-links/" rel="prev" title="Useful links">
+                Useful links <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -431,7 +456,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#26-Remove-Duplicates-from-Sorted-Array"><span class="nav-number">1.</span> <span class="nav-text">26. Remove Duplicates from Sorted Array</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-1"><span class="nav-number">1.1.</span> <span class="nav-text">Solution 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-2"><span class="nav-number">1.2.</span> <span class="nav-text">Solution 2</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Web"><span class="nav-number">1.</span> <span class="nav-text">Web</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript"><span class="nav-number">2.</span> <span class="nav-text">JavaScript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-HTML"><span class="nav-number">3.</span> <span class="nav-text">CSS/HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Structure"><span class="nav-number">4.</span> <span class="nav-text">Data Structure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Algorithm"><span class="nav-number">5.</span> <span class="nav-text">Algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Behavior"><span class="nav-number">6.</span> <span class="nav-text">Behavior</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Slef-Project"><span class="nav-number">7.</span> <span class="nav-text">Slef/Project</span></a></li></ol></div>
             
           </div>
         </section>

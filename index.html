@@ -233,6 +233,441 @@
             
               
                 
+                <a class="post-title-link" href="/2018/05/30/LeetCode-with-JS-104-Maximum-Depth-of-Binary-Tree/" itemprop="url">
+                  LeetCode-with-JS-104-Maximum-Depth-of-Binary-Tree
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2018-05-30T17:20:04-04:00" content="2018-05-30">
+              2018-05-30
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="104-Maximum-Depth-of-Binary-Tree"><a href="#104-Maximum-Depth-of-Binary-Tree" class="headerlink" title="104. Maximum Depth of Binary Tree"></a>104. Maximum Depth of Binary Tree</h1><p>Given a binary tree, find its maximum depth.<br>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.<br><strong>Note</strong>: A leaf is a node with no children.</p>
+<p><strong>Example:</strong></p>
+<p>Given binary tree <code>[3,9,20,null,null,15,7]</code>,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  3</span><br><span class="line"> / \</span><br><span class="line">9  20</span><br><span class="line">  /  \</span><br><span class="line"> 15   7</span><br></pre></td></tr></table></figure>
+<p>return its depth = 3.</p>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>Recursive solution.<br>If the node does not exist,return 0.<br>Otherwise, return the the longer distance of its subtree plus 1.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maxDepth = <span class="function"><span class="keyword">function</span>(<span class="params">root</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root===<span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> leftDepth = maxDepth(root.left)</span><br><span class="line">    <span class="keyword">let</span> rightDepth = maxDepth(root.right)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.max(leftDepth, rightDepth)+<span class="number">1</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time Complexity：O(n)<br>Space Complexity：O(n)</p>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>Iterative DFS(Depth-first-search)<br>If the node does not exist,return 0.<br>Otherwise, push root to a <strong><em>Stack</em></strong> and check the next node of current node.<br>If exist, depth plus 1 and compare to get the maxDepth.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maxDepth = <span class="function"><span class="keyword">function</span>(<span class="params">root</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root===<span class="literal">null</span>) <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> stack = []</span><br><span class="line">    <span class="keyword">let</span> maxDepth = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    stack.push(&#123;<span class="string">'node'</span>: root, <span class="string">'depth'</span>: maxDepth&#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(stack.length)&#123;</span><br><span class="line">        <span class="keyword">let</span> obj = stack.pop()</span><br><span class="line">        <span class="keyword">let</span> node = obj.node</span><br><span class="line">        <span class="keyword">let</span> depth = obj.depth</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(node.left != <span class="literal">null</span>)&#123;</span><br><span class="line">            stack.push(&#123;<span class="string">'node'</span>: node.left, <span class="string">'depth'</span>: depth + <span class="number">1</span>&#125;)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(node.right != <span class="literal">null</span>)&#123;</span><br><span class="line">            stack.push(&#123;<span class="string">'node'</span>: node.right, <span class="string">'depth'</span>: depth + <span class="number">1</span>&#125;)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        maxDepth = <span class="built_in">Math</span>.max(maxDepth, depth)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> maxDepth</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time Complexity：O(n)<br>Space Complexity：O(n)</p>
+<h2 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution 3"></a>Solution 3</h2><p>Iterative BFS(Breadth-first-search)<br>If the node does not exist,return 0.<br>Otherwise, push root to a <strong><em>Queue</em></strong> and loop through all adjacent nodes of current node.<br>After looping through all same-level nodes, count plus 1.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maxDepth = <span class="function"><span class="keyword">function</span>(<span class="params">root</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root===<span class="literal">null</span>) <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> queue = []</span><br><span class="line">    <span class="keyword">let</span> count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    queue.push(root)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(queue.length)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> i = queue.length; i &gt; <span class="number">0</span> ; i--)&#123;</span><br><span class="line">            <span class="keyword">let</span> obj = queue.shift()</span><br><span class="line">            <span class="keyword">if</span>(obj.left !== <span class="literal">null</span>)&#123;</span><br><span class="line">                queue.push(obj.left)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(obj.right !== <span class="literal">null</span>)&#123;</span><br><span class="line">                queue.push(obj.right)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        count ++</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> count</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time Complexity：O(n)<br>Space Complexity：O(n)</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/05/26/What-is-REST/" itemprop="url">
+                  What is REST ?
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2018-05-26T18:30:07-04:00" content="2018-05-26">
+              2018-05-26
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><em>Representational State Transfer (REST)</em> is an architectural style that defines a set of constraints and properties based on HTTP. (Resource-base/Representations)</p>
+<p>##The six constraints are:</p>
+<ul>
+<li>Uniform Interface(CRUD)</li>
+<li>Stateless</li>
+<li>Cacheable</li>
+<li>Client-Server</li>
+<li>Layered System</li>
+<li>Code on Demand (optional)</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/04/22/Useful-links/" itemprop="url">
+                  Useful links
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2018-04-22T18:22:48-04:00" content="2018-04-22">
+              2018-04-22
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Tech-News"><a href="#Tech-News" class="headerlink" title="Tech News"></a>Tech News</h2><ul>
+<li><a href="https://hackernoon.com/javascript/home" target="_blank" rel="external">HackerNoonJS</a></li>
+<li><a href="https://medium.freecodecamp.org/" target="_blank" rel="external">freecodecamp</a></li>
+</ul>
+<h2 id="Interview-preparation"><a href="#Interview-preparation" class="headerlink" title="Interview preparation"></a>Interview preparation</h2><ul>
+<li><a href="https://medium.freecodecamp.org/cracking-the-front-end-interview-9a34cd46237" target="_blank" rel="external">freecodecamp</a></li>
+<li><a href="http://www.1point3acres.com/bbs/thread-104335-1-1.html" target="_blank" rel="external">1point3acres</a></li>
+<li><a href="http://www.1point3acres.com/bbs/thread-104824-1-1.html" target="_blank" rel="external">1point3acres</a></li>
+</ul>
+<h2 id="coding-practice"><a href="#coding-practice" class="headerlink" title="coding practice"></a>coding practice</h2><ul>
+<li><a href="https://leetcode.com/problemset/all/?difficulty=Easy&amp;topicSlugs=array&amp;listId=wpwgkgt" target="_blank" rel="external">LeetCode</a></li>
+<li><a href="https://www.hackerrank.com/dashboard" target="_blank" rel="external">HackerRank</a></li>
+<li><a href="https://www.hackerearth.com/practice/" target="_blank" rel="external">HackerEarth</a></li>
+</ul>
+<h2 id="Data-Structure-amp-Algorithm"><a href="#Data-Structure-amp-Algorithm" class="headerlink" title="Data Structure &amp; Algorithm"></a>Data Structure &amp; Algorithm</h2><p><a href="https://www.youtube.com/watch?v=HdFG8L1sajw&amp;index=2&amp;list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P&amp;t=0s" target="_blank" rel="external">Data Structure</a></p>
+<h2 id="Interview-Questions"><a href="#Interview-Questions" class="headerlink" title="Interview Questions"></a>Interview Questions</h2><ul>
+<li><a href="https://github.com/h5bp/Front-end-Developer-Interview-Questions" target="_blank" rel="external">Github</a></li>
+<li><a href="http://davidshariff.com/quiz/" target="_blank" rel="external">Quiz</a></li>
+</ul>
+<h2 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h2><ul>
+<li><a href="https://jsfiddle.net/" target="_blank" rel="external">jsfiddle</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/04/21/Interview-questions/" itemprop="url">
+                  Interview questions
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2018-04-21T13:13:38-04:00" content="2018-04-21">
+              2018-04-21
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><ul>
+<li><strong>HTTPS negotiation steps?</strong></li>
+</ul>
+<ol>
+<li>Client request a SSL connection.</li>
+<li>Server response with the certificate(public key;SSL done).</li>
+<li>Client validates the certificate/public key.</li>
+<li>Client generates a symmetric key(session key) and transmits it to the server.</li>
+<li>SSL session is established(finished).</li>
+</ol>
+<p><a href="https://www.youtube.com/watch?v=po3zYOe00O4" target="_blank" rel="external">HTTP/HTTPS</a><br><a href="https://www.youtube.com/watch?v=WNlraSBwlh8" target="_blank" rel="external">hand shake</a></p>
+<ul>
+<li><strong>What is CORS(Cross-Origin Resource Sharing)?</strong><br>Uses additional HTTP headers to let a user agent gain permission to access selected resources from a server on a different origin (domain) than the site currently in use. A user agent makes a <code>cross-origin HTTP request</code> when it requests a resource from a different domain, protocol, or port than the one from which the current document originated.</li>
+</ul>
+<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h2 id="CSS-HTML"><a href="#CSS-HTML" class="headerlink" title="CSS/HTML"></a>CSS/HTML</h2><h2 id="Data-Structure"><a href="#Data-Structure" class="headerlink" title="Data Structure"></a>Data Structure</h2><h2 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h2><h2 id="Behavior"><a href="#Behavior" class="headerlink" title="Behavior"></a>Behavior</h2><h2 id="Slef-Project"><a href="#Slef-Project" class="headerlink" title="Slef/Project"></a>Slef/Project</h2><ul>
+<li>Why was there a gap in your employment?</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018/04/20/Leetcode-150/" itemprop="url">
                   Leetcode 150
                 </a>
@@ -954,440 +1389,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/04/08/LeetCode-with-JS-53-Maximum-Subarray/" itemprop="url">
-                  LeetCode with JS 53. Maximum Subarray
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2018-04-08T13:02:40-04:00" content="2018-04-08">
-              2018-04-08
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="53-Maximum-Subarray"><a href="#53-Maximum-Subarray" class="headerlink" title="53. Maximum Subarray"></a>53. Maximum Subarray</h1><p>Find the contiguous subarray within an array (containing at least one number) which has the largest sum.</p>
-<p>For example, given the array <code>[-2,1,-3,4,-1,2,1,-5,4]</code>,<br>the contiguous subarray <code>[4,-1,2,1]</code> has the largest sum = <code>6</code>.</p>
-<p>More practice:<br>If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.</p>
-<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p><strong>Dynamic programming(DP)/Kadane’s algorithm</strong><br>Maximum problem can be seen as optimization problem, thus we can use DP to solve this. Defined on Wiki, DP is a method for solving complex problems by breaking them down into simpler subproblems. It is applicable to problems exhibiting the properties of <em>overlapping subproblems</em> and <em>optimal substructure</em>. This question is only exhibit optimal substructure.</p>
-<p>Reference to the discussion <a href="https://leetcode.com/problems/maximum-subarray/discuss/20193/DP-solution-and-some-thoughts?page=1" target="_blank" rel="external">here</a>. The subproblem is to calculate <code>sum(0,i)</code> which can be either adding <code>sum(0,i-1)</code> to <code>nums[i]</code>, or not. If <code>sum(0,i-1)</code> is negative, then add it to <code>nums[i]</code> only makes the sum smaller. Thus, we add only if it’s not negative.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum(<span class="number">0</span>,i) = nums[i] + (sum(<span class="number">0</span>,i<span class="number">-1</span>) &lt; <span class="number">0</span> ? <span class="number">0</span> : sum(<span class="number">0</span>,i<span class="number">-1</span>));</span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maxSubArray = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> sum = nums[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">let</span> max = nums[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">1</span>; i&lt;nums.length; i++)&#123;</span><br><span class="line">        sum =  sum &lt; <span class="number">0</span> ? nums[i]: sum + nums[i];</span><br><span class="line">        max = <span class="built_in">Math</span>.max(max, sum);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> max;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time Complexity：O(n)<br>Space Complexity：O(1)</p>
-<p>However, there is a name for this method called <a href="https://en.wikipedia.org/wiki/Maximum_subarray_problem#Kadane&#39;s_algorithm_(Algorithm_3:_Dynamic_Programming" target="_blank" rel="external">Kadane’s algorithm</a>. We can simply consider that <code>max_ending_here[i+1] = max(nums[i], nums[i] + max_ending_here[i])</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maxSubArray = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> max_ending_here = nums[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">let</span> max_so_far = nums[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">1</span>; i&lt;nums.length; i++)&#123;</span><br><span class="line">        max_ending_here = <span class="built_in">Math</span>.max(max_ending_here + nums[i], nums[i]);</span><br><span class="line">        max_so_far = <span class="built_in">Math</span>.max(max_ending_here, max_so_far);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> max_so_far;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time Complexity：O(n)<br>Space Complexity：O(1)</p>
-<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p><strong><a href="https://en.wikipedia.org/wiki/Maximum_subarray_problem#Algorithm_2:_Divide_and_Conquer" target="_blank" rel="external">Divide and Conquer algorithm</a></strong> is another way to solve this problem. This method uses recursion to break a problem into sub-problems until they can be solved directly. The solutions are then put together to solve the original problem.</p>
-<p>Reference to discussion <a href="https://leetcode.com/problems/maximum-subarray/discuss/20372/How-to-solve-%22Maximum-Subarray%22-by-using-the-divide-and-conquer-approach" target="_blank" rel="external">here</a> and book <a href="http://ressources.unisciel.fr/algoprog/s00aaroot/aa00module1/res/%5BCormen-AL2011%5DIntroduction_To_Algorithms-A3.pdf" target="_blank" rel="external">Introduction to Algorithms, Third Edition, Chapter 4.1</a>.<br>First, we equally divide the array into two subarrays by finding the midpoint, then the maxSubarray <code>A[i,j]</code> must lie in following three places:</p>
-<ul>
-<li>entirely in the left subarray <code>A[left,middle]</code>, so that left&lt;=i&lt;=j&lt;=middle.</li>
-<li>entirely in the right subarray <code>A[middle+1,right]</code>, so that middle+1&lt;=i&lt;=j&lt;=right.</li>
-<li>crossing the midpoint, so that left&lt;=i&lt;=middle&lt;=j&lt;=right.</li>
-</ul>
-<p>If crossing the midpoint, then the result will be adding the maximum suffix subarray of the left subarray and the maximum prefix subarray of the right subarray.<br>If not crossing the midpoint, then we can just apply the same algorithm to the left and the right part respectively to find the max subarray.<br>Finally, return the maximum of those three situation.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maxSubArray = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(nums.length == <span class="number">0</span>)&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">       &#125;</span><br><span class="line">    <span class="keyword">return</span> maxSubarrayPartitioner(nums, <span class="number">0</span>, nums.length<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> crossSubArray = <span class="function"><span class="keyword">function</span>(<span class="params">array, left, middle, right</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> leftSum = -<span class="literal">Infinity</span>;</span><br><span class="line">    <span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=middle; i&gt;=left; i--) &#123;</span><br><span class="line">        sum += array[i];</span><br><span class="line">        <span class="keyword">if</span>(sum &gt;leftSum)&#123;</span><br><span class="line">            leftSum = sum;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> rightSum = -<span class="literal">Infinity</span>;</span><br><span class="line">    sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=middle+<span class="number">1</span>; i&lt;=right; i++)&#123;</span><br><span class="line">        sum += array[i];</span><br><span class="line">        <span class="keyword">if</span>(sum &gt; rightSum)&#123;</span><br><span class="line">            rightSum = sum;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> leftSum+rightSum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> maxSubarrayPartitioner = <span class="function"><span class="keyword">function</span>(<span class="params">array, left, right</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(left == right)&#123;</span><br><span class="line">        <span class="keyword">return</span> array[left];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> middle = <span class="built_in">Math</span>.floor((left+right)/<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">let</span> leftSum = maxSubarrayPartitioner(array, left, middle);</span><br><span class="line">    <span class="keyword">let</span> rightSum = maxSubarrayPartitioner(array, middle+<span class="number">1</span>, right);</span><br><span class="line">    <span class="keyword">let</span> crossSum = crossSubArray(array, left, middle, right);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.max(crossSum, leftSum, rightSum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Time Complexity：O(nlogn).</p>
-<h2 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution 3"></a>Solution 3</h2><p><strong><a href="https://en.wikipedia.org/wiki/Maximum_subarray_problem#Algorithm_1:_Brute_Force" target="_blank" rel="external">Brute Force</a></strong> is a slow and inefficient method to checks all possibilities for the solution to the problem.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maxSubArray = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> maxSumSoFar = -<span class="literal">Infinity</span>;</span><br><span class="line">    <span class="keyword">let</span> maxISoFar = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> maxJSoFar = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">let</span> len = nums.length;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;len; i++)&#123;</span><br><span class="line">        <span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> j=i; j&lt;len; j++)&#123;</span><br><span class="line">            sum+=nums[j];</span><br><span class="line">            <span class="keyword">if</span>(sum&gt;maxSumSoFar)&#123;</span><br><span class="line">                maxSumSoFar = sum;</span><br><span class="line">                maxISoFar = i;</span><br><span class="line">                maxJSoFar = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxSumSoFar;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time Complexity：O(n^2)</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/04/01/LeetCode-with-JS-26-Remove-Duplicates-from-Sorted-Array/" itemprop="url">
-                  LeetCode with JS 26 Remove Duplicates from Sorted Array
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2018-04-01T12:23:20-04:00" content="2018-04-01">
-              2018-04-01
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="26-Remove-Duplicates-from-Sorted-Array"><a href="#26-Remove-Duplicates-from-Sorted-Array" class="headerlink" title="26. Remove Duplicates from Sorted Array"></a>26. Remove Duplicates from Sorted Array</h1><p>Given a sorted array, remove the duplicates <strong><em>in-place</em></strong> such that each element appear only once and return the new length.<br>Do not allocate extra space for another array, you must do this by <strong>modifying the input array</strong> <strong><em>in-place</em></strong> with O(1) extra memory.</p>
-<p><strong>Example:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Given nums = [1,1,2],</span><br><span class="line"></span><br><span class="line">Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.</span><br><span class="line">It doesn&apos;t matter what you leave beyond the new length.</span><br></pre></td></tr></table></figure></p>
-<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>Delete duplicate elements from Array using <strong>Array.Splice()</strong>.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> removeDuplicates = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> i, j, prev, len = nums.length;</span><br><span class="line">    <span class="keyword">let</span> removed = [];</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;len; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums[i] === prev)&#123;</span><br><span class="line">            removed.push(i);</span><br><span class="line">        &#125;</span><br><span class="line">        prev = nums[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(j = removed.length<span class="number">-1</span>; j&gt;=<span class="number">0</span>; j--)&#123;</span><br><span class="line">        nums.splice(removed[j],<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> nums.length;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>For a sorted array, we can use two pointers i, j to find the duplicate.<br>If nums[i] == nums[j], we increment j to skip the duplicate.<br>If nums[i] !== nums[j], we know the duplicate run has ended so we copy the new value nums[j] to nums[i+1].<br>i is then incremented and we repeat until j reached the end of the array.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> removeDuplicates = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (j=<span class="number">1</span>; j&lt;nums.length; j++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[j] !== nums[i]) &#123;</span><br><span class="line">            nums[++i] = nums[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i+<span class="number">1</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time Complexity：O(n)<br>Space Complexity：O(1)</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/03/11/How-to-create-a-blog-with-Hexo-GitHub/" itemprop="url">
-                  How to create a blog with Hexo + GitHub
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2018-03-11T20:35:15-04:00" content="2018-03-11">
-              2018-03-11
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>There are many ways to build a static blog and I choose Hexo + GitHub pages. We can use Hexo to write blogs locally. Hexo translates the blog into a static page and then uploads these static pages to github. These static pages are deployed by the static web server of github pages.</p>
-<h1 id="What-is-Hexo"><a href="#What-is-Hexo" class="headerlink" title="What is Hexo?"></a>What is Hexo?</h1><p>Hexo is a fast, simple &amp; powerful blog framework based on Node.js. We write posts in Markdown and Hexo generates static files as well as deploy them in seconds.</p>
-<p>Before installing Hexo, we need to have <a href="https://nodejs.org/en/" target="_blank" rel="external">Nodejs</a> &amp; <a href="https://git-scm.com/" target="_blank" rel="external">Git</a> installed first.</p>
-<h1 id="Install-Hexo"><a href="#Install-Hexo" class="headerlink" title="Install Hexo"></a>Install Hexo</h1><p>Once we have installed Nodejs and Git, we can continue to install Hexo.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
-<h1 id="Create-a-blog"><a href="#Create-a-blog" class="headerlink" title="Create a blog"></a>Create a blog</h1><p>After done installation, we need to initialize Hexo project by using following commands.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init blog</span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure></p>
-<p>We can also modify the settings in <strong><em>_config.yml</em></strong>.<br><img src="/2018/03/11/How-to-create-a-blog-with-Hexo-GitHub/settings.png" alt="Settings" title="Settings"></p>
-<h1 id="Run-the-blog"><a href="#Run-the-blog" class="headerlink" title="Run the blog"></a>Run the blog</h1><p>Use following command to run the server.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></p>
-<img src="/2018/03/11/How-to-create-a-blog-with-Hexo-GitHub/server.png" alt="Start Server" title="Start Server">
-<p>Browse to <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> and we got our blog!<br><img src="/2018/03/11/How-to-create-a-blog-with-Hexo-GitHub/blogsnapshot.png" alt="Blog Snapshot" title="Blog Snapshot"></p>
-<h1 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h1><p>Now we want to create a post, simply use the following command.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"New Posts"</span></span><br></pre></td></tr></table></figure></p>
-<img src="/2018/03/11/How-to-create-a-blog-with-Hexo-GitHub/newposts.png" alt="Create Posts" title="Create Posts">
-<p>Write our new post in the Markdown file in <em>/source/posts</em>.<br><img src="/2018/03/11/How-to-create-a-blog-with-Hexo-GitHub/mdfile.png" alt="Markdown file" title="Markdown file"></p>
-<p>Run the server again to get the updated blog:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></p>
-<img src="/2018/03/11/How-to-create-a-blog-with-Hexo-GitHub/blogsnapshot1.png" alt="Blog Snapshot" title="Blog Snapshot">
-<h1 id="Deployment-on-Github"><a href="#Deployment-on-Github" class="headerlink" title="Deployment on Github"></a>Deployment on Github</h1><p>First we need to create a new repository on github.<br><img src="/2018/03/11/How-to-create-a-blog-with-Hexo-GitHub/createrepo.png" alt="Create Repo" title="Create Repo"></p>
-<p>In the <strong><em>settings</em></strong>, publish the repo on github pages.<br><img src="/2018/03/11/How-to-create-a-blog-with-Hexo-GitHub/publish.png" alt="Publish Repo" title="Publish Repo"></p>
-<p>Then install hexo-deployer-git:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
-<p>Find out the repo URL and Update in <strong><em>_config.yml</em></strong> file :<br><img src="/2018/03/11/How-to-create-a-blog-with-Hexo-GitHub/repoURL.png" alt="Repo URL" title="Repo URL"><br><img src="/2018/03/11/How-to-create-a-blog-with-Hexo-GitHub/deploysetting.png" alt="Deployment Setting" title="Deployment Setting"></p>
-<p>Finally, run the deploy conmand.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></p>
-<p>Check out the blog on <a href="http://weekendchow.github.io/" target="_blank" rel="external">http://weekendchow.github.io/</a>!</p>
-<p>Reference: <a href="https://malekbenz.com/blog/2016/09/10/Create-Host-Blog-for-free-with-Hexo-Github" target="_blank" rel="external">https://malekbenz.com/blog/2016/09/10/Create-Host-Blog-for-free-with-Hexo-Github</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/03/11/LeetCode-with-JS-1-Two-Sum/" itemprop="url">
-                  LeetCode with JS 1.Two Sum
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2018-03-11T13:56:29-04:00" content="2018-03-11">
-              2018-03-11
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="1-Two-Sum"><a href="#1-Two-Sum" class="headerlink" title="1. Two Sum"></a>1. Two Sum</h1><p>Given an array of <strong>integers</strong>, return indices of the two numbers such that they add up to a specific target.<br>You may assume that each input would have <strong><em>exactly</em></strong> one solution, and you may not use the same element twice.<br><strong>Example:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Given nums = [2, 7, 11, 15], target = 9,</span><br><span class="line"></span><br><span class="line">Because nums[0] + nums[1] = 2 + 7 = 9,</span><br><span class="line">return [0, 1].</span><br></pre></td></tr></table></figure></p>
-<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>Simplest way is to iterate the array twice and sum up to find the target.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> twoSum = <span class="function"><span class="keyword">function</span>(<span class="params">nums, target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> i,len = nums.length;</span><br><span class="line">    <span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;len<span class="number">-1</span>;i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (j=i+<span class="number">1</span>;j&lt;len;j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] + nums[j] === target) &#123;</span><br><span class="line">                <span class="keyword">return</span> [i,j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time Complexity：O(n^2)<br>Space Complexity：O(1)</p>
-<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>Use <strong>indexOf()</strong> method to search the array.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> twoSum = <span class="function"><span class="keyword">function</span>(<span class="params">nums, target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = [];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums.indexOf(target - nums[i])!=<span class="number">-1</span>&amp;&amp;nums.indexOf(target - nums[i])!=i)&#123;</span><br><span class="line">            result.push(i);</span><br><span class="line">            result.push(nums.indexOf(target - nums[i]));</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;     </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time Complexity：O(n^2)</p>
-<h2 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution 3"></a>Solution 3</h2><p>This one is the optimal solution.<br>Create a hash table and store the array value(key) and corresponding index(value). Only iterate the array once. For each element, check if there is a match in the hash table. If not, add this element to the hash table.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> twoSum = <span class="function"><span class="keyword">function</span>(<span class="params">nums, target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> len = nums.length;</span><br><span class="line">    <span class="keyword">let</span> i,val;</span><br><span class="line">    <span class="keyword">let</span> hash = &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;len;i++) &#123;</span><br><span class="line">        val = target-nums[i];</span><br><span class="line">        <span class="keyword">if</span> (hash[val] !== <span class="literal">undefined</span>)</span><br><span class="line">            <span class="keyword">return</span> [i,hash[val]];</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            hash[nums[i]] = i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time Complexity：O(n)<br>Space Complexity：O(n)</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1433,7 +1434,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1443,7 +1444,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>

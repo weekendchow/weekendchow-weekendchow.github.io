@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="LeetCode,JS,easy,Array," />
+  <meta name="keywords" content="interview,resourse," />
 
 
 
@@ -84,16 +84,61 @@
 
 
 
-<meta name="description" content="26. Remove Duplicates from Sorted ArrayGiven a sorted array, remove the duplicates in-place such that each element appear only once and return the new length.Do not allocate extra space for another ar">
+<meta name="description" content="Tech News
+HackerNoonJS
+freecodecamp
+
+Interview preparation
+freecodecamp
+1point3acres
+1point3acres
+
+coding practice
+LeetCode
+HackerRank
+HackerEarth
+
+Data Structure &amp;amp; AlgorithmData Structure
+Intervi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode with JS 26 Remove Duplicates from Sorted Array">
-<meta property="og:url" content="http://yoursite.com/2018/04/01/LeetCode-with-JS-26-Remove-Duplicates-from-Sorted-Array/index.html">
+<meta property="og:title" content="Useful links">
+<meta property="og:url" content="http://yoursite.com/2018/04/22/Useful-links/index.html">
 <meta property="og:site_name" content="MOMOMOMO’s Blog">
-<meta property="og:description" content="26. Remove Duplicates from Sorted ArrayGiven a sorted array, remove the duplicates in-place such that each element appear only once and return the new length.Do not allocate extra space for another ar">
-<meta property="og:updated_time" content="2018-04-01T16:54:27.000Z">
+<meta property="og:description" content="Tech News
+HackerNoonJS
+freecodecamp
+
+Interview preparation
+freecodecamp
+1point3acres
+1point3acres
+
+coding practice
+LeetCode
+HackerRank
+HackerEarth
+
+Data Structure &amp;amp; AlgorithmData Structure
+Intervi">
+<meta property="og:updated_time" content="2018-04-23T11:52:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode with JS 26 Remove Duplicates from Sorted Array">
-<meta name="twitter:description" content="26. Remove Duplicates from Sorted ArrayGiven a sorted array, remove the duplicates in-place such that each element appear only once and return the new length.Do not allocate extra space for another ar">
+<meta name="twitter:title" content="Useful links">
+<meta name="twitter:description" content="Tech News
+HackerNoonJS
+freecodecamp
+
+Interview preparation
+freecodecamp
+1point3acres
+1point3acres
+
+coding practice
+LeetCode
+HackerRank
+HackerEarth
+
+Data Structure &amp;amp; AlgorithmData Structure
+Intervi">
 
 
 
@@ -111,7 +156,7 @@
   };
 </script>
 
-  <title> LeetCode with JS 26 Remove Duplicates from Sorted Array | MOMOMOMO’s Blog </title>
+  <title> Useful links | MOMOMOMO’s Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -231,7 +276,7 @@
             
             
               
-                LeetCode with JS 26 Remove Duplicates from Sorted Array
+                Useful links
               
             
           </h1>
@@ -243,8 +288,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2018-04-01T12:23:20-04:00" content="2018-04-01">
-              2018-04-01
+            <time itemprop="dateCreated" datetime="2018-04-22T18:22:48-04:00" content="2018-04-22">
+              2018-04-22
             </time>
           </span>
 
@@ -271,13 +316,28 @@
       
 
       
-        <h1 id="26-Remove-Duplicates-from-Sorted-Array"><a href="#26-Remove-Duplicates-from-Sorted-Array" class="headerlink" title="26. Remove Duplicates from Sorted Array"></a>26. Remove Duplicates from Sorted Array</h1><p>Given a sorted array, remove the duplicates <strong><em>in-place</em></strong> such that each element appear only once and return the new length.<br>Do not allocate extra space for another array, you must do this by <strong>modifying the input array</strong> <strong><em>in-place</em></strong> with O(1) extra memory.</p>
-<p><strong>Example:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Given nums = [1,1,2],</span><br><span class="line"></span><br><span class="line">Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.</span><br><span class="line">It doesn&apos;t matter what you leave beyond the new length.</span><br></pre></td></tr></table></figure></p>
-<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>Delete duplicate elements from Array using <strong>Array.Splice()</strong>.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> removeDuplicates = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> i, j, prev, len = nums.length;</span><br><span class="line">    <span class="keyword">let</span> removed = [];</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;len; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums[i] === prev)&#123;</span><br><span class="line">            removed.push(i);</span><br><span class="line">        &#125;</span><br><span class="line">        prev = nums[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(j = removed.length<span class="number">-1</span>; j&gt;=<span class="number">0</span>; j--)&#123;</span><br><span class="line">        nums.splice(removed[j],<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> nums.length;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>For a sorted array, we can use two pointers i, j to find the duplicate.<br>If nums[i] == nums[j], we increment j to skip the duplicate.<br>If nums[i] !== nums[j], we know the duplicate run has ended so we copy the new value nums[j] to nums[i+1].<br>i is then incremented and we repeat until j reached the end of the array.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> removeDuplicates = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (j=<span class="number">1</span>; j&lt;nums.length; j++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[j] !== nums[i]) &#123;</span><br><span class="line">            nums[++i] = nums[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i+<span class="number">1</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time Complexity：O(n)<br>Space Complexity：O(1)</p>
+        <h2 id="Tech-News"><a href="#Tech-News" class="headerlink" title="Tech News"></a>Tech News</h2><ul>
+<li><a href="https://hackernoon.com/javascript/home" target="_blank" rel="external">HackerNoonJS</a></li>
+<li><a href="https://medium.freecodecamp.org/" target="_blank" rel="external">freecodecamp</a></li>
+</ul>
+<h2 id="Interview-preparation"><a href="#Interview-preparation" class="headerlink" title="Interview preparation"></a>Interview preparation</h2><ul>
+<li><a href="https://medium.freecodecamp.org/cracking-the-front-end-interview-9a34cd46237" target="_blank" rel="external">freecodecamp</a></li>
+<li><a href="http://www.1point3acres.com/bbs/thread-104335-1-1.html" target="_blank" rel="external">1point3acres</a></li>
+<li><a href="http://www.1point3acres.com/bbs/thread-104824-1-1.html" target="_blank" rel="external">1point3acres</a></li>
+</ul>
+<h2 id="coding-practice"><a href="#coding-practice" class="headerlink" title="coding practice"></a>coding practice</h2><ul>
+<li><a href="https://leetcode.com/problemset/all/?difficulty=Easy&amp;topicSlugs=array&amp;listId=wpwgkgt" target="_blank" rel="external">LeetCode</a></li>
+<li><a href="https://www.hackerrank.com/dashboard" target="_blank" rel="external">HackerRank</a></li>
+<li><a href="https://www.hackerearth.com/practice/" target="_blank" rel="external">HackerEarth</a></li>
+</ul>
+<h2 id="Data-Structure-amp-Algorithm"><a href="#Data-Structure-amp-Algorithm" class="headerlink" title="Data Structure &amp; Algorithm"></a>Data Structure &amp; Algorithm</h2><p><a href="https://www.youtube.com/watch?v=HdFG8L1sajw&amp;index=2&amp;list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P&amp;t=0s" target="_blank" rel="external">Data Structure</a></p>
+<h2 id="Interview-Questions"><a href="#Interview-Questions" class="headerlink" title="Interview Questions"></a>Interview Questions</h2><ul>
+<li><a href="https://github.com/h5bp/Front-end-Developer-Interview-Questions" target="_blank" rel="external">Github</a></li>
+<li><a href="http://davidshariff.com/quiz/" target="_blank" rel="external">Quiz</a></li>
+</ul>
+<h2 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h2><ul>
+<li><a href="https://jsfiddle.net/" target="_blank" rel="external">jsfiddle</a></li>
+</ul>
 
       
     </div>
@@ -299,13 +359,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/LeetCode/" rel="tag">#LeetCode</a>
+            <a href="/tags/interview/" rel="tag">#interview</a>
           
-            <a href="/tags/JS/" rel="tag">#JS</a>
-          
-            <a href="/tags/easy/" rel="tag">#easy</a>
-          
-            <a href="/tags/Array/" rel="tag">#Array</a>
+            <a href="/tags/resourse/" rel="tag">#resourse</a>
           
         </div>
       
@@ -314,16 +370,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/11/How-to-create-a-blog-with-Hexo-GitHub/" rel="next" title="How to create a blog with Hexo + GitHub">
-                <i class="fa fa-chevron-left"></i> How to create a blog with Hexo + GitHub
+              <a href="/2018/04/21/Interview-questions/" rel="next" title="Interview questions">
+                <i class="fa fa-chevron-left"></i> Interview questions
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/08/LeetCode-with-JS-53-Maximum-Subarray/" rel="prev" title="LeetCode with JS 53. Maximum Subarray">
-                LeetCode with JS 53. Maximum Subarray <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/26/What-is-REST/" rel="prev" title="What is REST ?">
+                What is REST ? <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -431,7 +487,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#26-Remove-Duplicates-from-Sorted-Array"><span class="nav-number">1.</span> <span class="nav-text">26. Remove Duplicates from Sorted Array</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-1"><span class="nav-number">1.1.</span> <span class="nav-text">Solution 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-2"><span class="nav-number">1.2.</span> <span class="nav-text">Solution 2</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tech-News"><span class="nav-number">1.</span> <span class="nav-text">Tech News</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Interview-preparation"><span class="nav-number">2.</span> <span class="nav-text">Interview preparation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#coding-practice"><span class="nav-number">3.</span> <span class="nav-text">coding practice</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Structure-amp-Algorithm"><span class="nav-number">4.</span> <span class="nav-text">Data Structure & Algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Interview-Questions"><span class="nav-number">5.</span> <span class="nav-text">Interview Questions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tools"><span class="nav-number">6.</span> <span class="nav-text">Tools</span></a></li></ol></div>
             
           </div>
         </section>
