@@ -233,8 +233,111 @@
             
               
                 
+                <a class="post-title-link" href="/2018/06/01/LeetCode-with-JS-100-Same-Tree/" itemprop="url">
+                  LeetCode with JS 100. Same Tree
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2018-06-01T13:06:24-04:00" content="2018-06-01">
+              2018-06-01
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="100-Same-Tree"><a href="#100-Same-Tree" class="headerlink" title="100. Same Tree"></a>100. Same Tree</h1><p>Given two binary trees, write a function to check if they are the same or not.<br>Two binary trees are considered the same if they are structurally identical and the nodes have the same value.</p>
+<p><strong>Example 1:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Input:     1         1</span><br><span class="line">          / \       / \</span><br><span class="line">         2   3     2   3</span><br><span class="line"></span><br><span class="line">        [1,2,3],   [1,2,3]</span><br><span class="line"></span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure></p>
+<p><strong>Example 2:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Input:     1         1</span><br><span class="line">          /           \</span><br><span class="line">         2             2</span><br><span class="line"></span><br><span class="line">        [1,2],     [1,null,2]</span><br><span class="line"></span><br><span class="line">Output: false</span><br></pre></td></tr></table></figure></p>
+<p><strong>Example 2:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Input:     1         1</span><br><span class="line">          / \       / \</span><br><span class="line">         2   1     1   2</span><br><span class="line"></span><br><span class="line">        [1,2,1],   [1,1,2]</span><br><span class="line"></span><br><span class="line">Output: false</span><br></pre></td></tr></table></figure></p>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>Recursive solution.<br>If p and q both are null, then return true.<br>If only one of them is null, then return false.<br>If the value of p and the value of q are not equal, then return false.<br>Otherwise, validate the children of the node Recursively.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isSameTree = <span class="function"><span class="keyword">function</span>(<span class="params">p, q</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(p === <span class="literal">null</span> &amp;&amp; q === <span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(p === <span class="literal">null</span> || q === <span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(p.val !== q.val)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> isSameTree(p.left, q.left) &amp;&amp; isSameTree(p.right, q.right)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time Complexity：O(n)<br>Space Complexity：O(height)</p>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>Iterative solution<br>If p and q both are null, then return true.<br>If only one of them is null, then return false.<br>Otherwise, push p and q to a <strong><em>Stack</em></strong> and check the next node of current node.<br>If both exist, push them into stack. If one of them not exist, return false.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isSameTree = <span class="function"><span class="keyword">function</span>(<span class="params">p, q</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(p === <span class="literal">null</span> &amp;&amp; q === <span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(p === <span class="literal">null</span> || q === <span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> stack = []</span><br><span class="line"></span><br><span class="line">    stack.push(&#123;<span class="string">'p'</span>: p, <span class="string">'q'</span>: q&#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(stack.length)&#123;</span><br><span class="line">        <span class="keyword">let</span> obj = stack.pop()</span><br><span class="line">        <span class="keyword">let</span> p = obj.p</span><br><span class="line">        <span class="keyword">let</span> q = obj.q</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(p.val !== q.val)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(p.left !== <span class="literal">null</span> &amp;&amp; q.left !== <span class="literal">null</span>)&#123;</span><br><span class="line">            stack.push(&#123;<span class="string">'p'</span>: p.left, <span class="string">'q'</span>: q.left&#125;)</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(p.left != <span class="literal">null</span> || q.left != <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(p.right !== <span class="literal">null</span> &amp;&amp; q.right !== <span class="literal">null</span>)&#123;</span><br><span class="line">            stack.push(&#123;<span class="string">'p'</span>: p.right, <span class="string">'q'</span>: q.right&#125;)</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(p.rigth != <span class="literal">null</span> || q.right != <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time Complexity：O(n)<br>Space Complexity：O(height)</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018/05/30/LeetCode-with-JS-104-Maximum-Depth-of-Binary-Tree/" itemprop="url">
-                  LeetCode-with-JS-104-Maximum-Depth-of-Binary-Tree
+                  LeetCode with JS 104. Maximum Depth of Binary Tree
                 </a>
               
             
@@ -713,8 +816,8 @@
         
           
             <h1 id="150-LeetCode-Questions-easy-to-hard"><a href="#150-LeetCode-Questions-easy-to-hard" class="headerlink" title="150 LeetCode Questions(easy to hard)"></a>150 LeetCode Questions(easy to hard)</h1><p><a href="http://bowang.name/leetcode-150/" target="_blank" rel="external">source</a></p>
-<h2 id="Easy"><a href="#Easy" class="headerlink" title="Easy"></a>Easy</h2><p>Maximum Depth of Binary Tree:<br>这道题有两种做法。第一种递归，得到左右子树的高度后在较高的那棵上加一；第二种dfs，碰到叶子节点就update当前最高高度。</p>
-<p>Same Tree: 判断两棵树是否相同。</p>
+<h2 id="Easy"><a href="#Easy" class="headerlink" title="Easy"></a>Easy</h2><p><strong>Maximum Depth of Binary Tree</strong>:<br>这道题有两种做法。第一种递归，得到左右子树的高度后在较高的那棵上加一；第二种dfs，碰到叶子节点就update当前最高高度。</p>
+<p><strong>Same Tree</strong>: 判断两棵树是否相同。</p>
 <p>Best Time to Buy and Sell Stock II: 买股票系列中最简单的一道，只要当前值比前面的大就累加上去。</p>
 <p>Binary Tree Inorder Traversal: 中序遍历，没什么好说。要注意可能要求iterative的版本。</p>
 <p>Binary Tree Preorder Traversal: 同上。值得一提的是post order的iterative traversal比这两个都难。</p>
@@ -1288,107 +1391,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/04/10/LeetCode-with-JS-66-Plus-One/" itemprop="url">
-                  LeetCode with JS 66. Plus One
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2018-04-10T14:15:53-04:00" content="2018-04-10">
-              2018-04-10
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="66-Plus-One"><a href="#66-Plus-One" class="headerlink" title="66. Plus One"></a>66. Plus One</h1><p>Given a non-negative integer represented as a <strong>non-empty</strong> array of digits, plus one to the integer.<br>You may assume the integer do not contain any leading zero, except the number 0 itself.<br>The digits are stored such that the most significant digit is at the head of the list.</p>
-<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>First, check from the last digit to see if it is 9 or not. If it’s not, break out of the loop. If it is 9, then we need to carry it to 10 which means set this digit to 0. Loop over to the next digit and check again until it reaches the first digit.</p>
-<p>If <code>i &gt;= 0</code> after the loop, this means ith digit is not 9 and we break out of the loop. Thus, add 1 to ith digit.<br>If <code>i &lt; 0</code> after the loop, this means the first digit of the array is 9 and in order to carry it to 10, we need to add digit 1 to the beginning of the array.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> plusOne = <span class="function"><span class="keyword">function</span>(<span class="params">digits</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> len = digits.length</span><br><span class="line">    <span class="keyword">let</span> i=len<span class="number">-1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i=len<span class="number">-1</span>; i&gt;=<span class="number">0</span>; i--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(digits[i] == <span class="number">9</span>)&#123;</span><br><span class="line">            digits[i] = <span class="number">0</span></span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(i &gt;= <span class="number">0</span>) digits[i] += <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span> digits.unshift(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> digits</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time Complexity：O(n)</p>
-<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>Set a carry variable to 0 and loop from the end of the array. First, we add 1 to the last digit. Then, add carry(0/1) to every digit when looping over the array. If ith digit is 10 then set digit to 0 and carry to 1. If the carry is 1 after the loop, we need to add the carry to the begining of the array.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> plusOne = <span class="function"><span class="keyword">function</span>(<span class="params">digits</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> carry = <span class="number">0</span></span><br><span class="line">    <span class="keyword">let</span> len = digits.length</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i=len<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">        digits[i] += carry</span><br><span class="line">        <span class="keyword">if</span>(i == len<span class="number">-1</span>) &#123;</span><br><span class="line">             digits[i] += <span class="number">1</span>;</span><br><span class="line">        &#125;        </span><br><span class="line">        <span class="keyword">if</span>(digits[i] == <span class="number">10</span>)&#123;</span><br><span class="line">          digits[i] = <span class="number">0</span>;</span><br><span class="line">          carry = <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          carry = <span class="number">0</span>;</span><br><span class="line">        &#125;        </span><br><span class="line">    &#125;    </span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(carry == <span class="number">1</span>)&#123;</span><br><span class="line">        digits.unshift(carry);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> digits</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Time Complexity：O(n).</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1434,7 +1436,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
