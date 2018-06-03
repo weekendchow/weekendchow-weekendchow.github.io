@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="LeetCode,JS,easy,Array," />
+  <meta name="keywords" content="LeetCode,JS,easy,Tree," />
 
 
 
@@ -84,16 +84,19 @@
 
 
 
-<meta name="description" content="26. Remove Duplicates from Sorted ArrayGiven a sorted array, remove the duplicates in-place such that each element appear only once and return the new length.Do not allocate extra space for another ar">
+<meta name="description" content="122. Best Time to Buy and Sell Stock IISay you have an array for which the ith element is the price of a given stock on day i.
+Design an algorithm to find the maximum profit. You may complete as many">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode with JS 26 Remove Duplicates from Sorted Array">
-<meta property="og:url" content="http://yoursite.com/2018/04/01/LeetCode-with-JS-26-Remove-Duplicates-from-Sorted-Array/index.html">
+<meta property="og:title" content="LeetCode with JS 122. Best Time to Buy and Sell Stock II">
+<meta property="og:url" content="http://yoursite.com/2018/06/02/LeetCode-with-JS-122-Best-Time-to-Buy-and-Sell-Stock-II/index.html">
 <meta property="og:site_name" content="MOMOMOMO’s Blog">
-<meta property="og:description" content="26. Remove Duplicates from Sorted ArrayGiven a sorted array, remove the duplicates in-place such that each element appear only once and return the new length.Do not allocate extra space for another ar">
-<meta property="og:updated_time" content="2018-04-01T16:54:27.000Z">
+<meta property="og:description" content="122. Best Time to Buy and Sell Stock IISay you have an array for which the ith element is the price of a given stock on day i.
+Design an algorithm to find the maximum profit. You may complete as many">
+<meta property="og:updated_time" content="2018-06-03T04:22:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode with JS 26 Remove Duplicates from Sorted Array">
-<meta name="twitter:description" content="26. Remove Duplicates from Sorted ArrayGiven a sorted array, remove the duplicates in-place such that each element appear only once and return the new length.Do not allocate extra space for another ar">
+<meta name="twitter:title" content="LeetCode with JS 122. Best Time to Buy and Sell Stock II">
+<meta name="twitter:description" content="122. Best Time to Buy and Sell Stock IISay you have an array for which the ith element is the price of a given stock on day i.
+Design an algorithm to find the maximum profit. You may complete as many">
 
 
 
@@ -111,7 +114,7 @@
   };
 </script>
 
-  <title> LeetCode with JS 26 Remove Duplicates from Sorted Array | MOMOMOMO’s Blog </title>
+  <title> LeetCode with JS 122. Best Time to Buy and Sell Stock II | MOMOMOMO’s Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -231,7 +234,7 @@
             
             
               
-                LeetCode with JS 26 Remove Duplicates from Sorted Array
+                LeetCode with JS 122. Best Time to Buy and Sell Stock II
               
             
           </h1>
@@ -243,8 +246,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2018-04-01T12:23:20-04:00" content="2018-04-01">
-              2018-04-01
+            <time itemprop="dateCreated" datetime="2018-06-02T19:41:25-04:00" content="2018-06-02">
+              2018-06-02
             </time>
           </span>
 
@@ -271,12 +274,17 @@
       
 
       
-        <h1 id="26-Remove-Duplicates-from-Sorted-Array"><a href="#26-Remove-Duplicates-from-Sorted-Array" class="headerlink" title="26. Remove Duplicates from Sorted Array"></a>26. Remove Duplicates from Sorted Array</h1><p>Given a sorted array, remove the duplicates <strong><em>in-place</em></strong> such that each element appear only once and return the new length.<br>Do not allocate extra space for another array, you must do this by <strong>modifying the input array</strong> <strong><em>in-place</em></strong> with O(1) extra memory.</p>
-<p><strong>Example:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Given nums = [1,1,2],</span><br><span class="line"></span><br><span class="line">Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.</span><br><span class="line">It doesn&apos;t matter what you leave beyond the new length.</span><br></pre></td></tr></table></figure></p>
-<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>Delete duplicate elements from Array using <strong>Array.Splice()</strong>.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> removeDuplicates = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> i, j, prev, len = nums.length;</span><br><span class="line">    <span class="keyword">let</span> removed = [];</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;len; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums[i] === prev)&#123;</span><br><span class="line">            removed.push(i);</span><br><span class="line">        &#125;</span><br><span class="line">        prev = nums[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(j = removed.length<span class="number">-1</span>; j&gt;=<span class="number">0</span>; j--)&#123;</span><br><span class="line">        nums.splice(removed[j],<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> nums.length;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>For a sorted array, we can use two pointers i, j to find the duplicate.<br>If nums[i] == nums[j], we increment j to skip the duplicate.<br>If nums[i] !== nums[j], we know the duplicate run has ended so we copy the new value nums[j] to nums[i+1].<br>i is then incremented and we repeat until j reached the end of the array.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> removeDuplicates = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (j=<span class="number">1</span>; j&lt;nums.length; j++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[j] !== nums[i]) &#123;</span><br><span class="line">            nums[++i] = nums[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i+<span class="number">1</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h1 id="122-Best-Time-to-Buy-and-Sell-Stock-II"><a href="#122-Best-Time-to-Buy-and-Sell-Stock-II" class="headerlink" title="122. Best Time to Buy and Sell Stock II"></a>122. Best Time to Buy and Sell Stock II</h1><p>Say you have an array for which the ith element is the price of a given stock on day i.</p>
+<p>Design an algorithm to find the maximum profit. You may complete as many transactions as you like (i.e., buy one and sell one share of the stock multiple times).</p>
+<p><strong>Note:</strong> You may not engage in multiple transactions at the same time (i.e., you must sell the stock before you buy again).</p>
+<p><strong>Example 1:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: [7,1,5,3,6,4]</span><br><span class="line">Output: 7</span><br><span class="line">Explanation: Buy on day 2 (price = 1) and sell on day 3 (price = 5), profit = 5-1 = 4.</span><br><span class="line">             Then buy on day 4 (price = 3) and sell on day 5 (price = 6), profit = 6-3 = 3.</span><br></pre></td></tr></table></figure></p>
+<p><strong>Example 2:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Input: [1,2,3,4,5]</span><br><span class="line">Output: 4</span><br><span class="line">Explanation: Buy on day 1 (price = 1) and sell on day 5 (price = 5), profit = 5-1 = 4.</span><br><span class="line">             Note that you cannot buy on day 1, buy on day 2 and sell them later, as you are</span><br><span class="line">             engaging multiple transactions at the same time. You must sell before buying again.</span><br></pre></td></tr></table></figure></p>
+<p><strong>Example 2:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [7,6,4,3,1]</span><br><span class="line">Output: 0</span><br><span class="line">Explanation: In this case, no transaction is done, i.e. max profit = 0.</span><br></pre></td></tr></table></figure></p>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>Peak Valley approach<br>Consider every peak immediately following a valley to maximize the profit.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maxProfit = <span class="function"><span class="keyword">function</span>(<span class="params">prices</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">let</span> res = <span class="number">0</span></span><br><span class="line">   <span class="keyword">let</span> valley = prices[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; prices.length; i++)&#123;</span><br><span class="line">       <span class="keyword">if</span>(prices[i] &gt; prices[i<span class="number">-1</span>])&#123;</span><br><span class="line">           <span class="keyword">if</span>(valley &gt; prices[i<span class="number">-1</span>])&#123;</span><br><span class="line">               res += prices[i]-valley</span><br><span class="line">               valley = prices[i+<span class="number">1</span>]</span><br><span class="line">           &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">               res += prices[i] - prices[i<span class="number">-1</span>]</span><br><span class="line">               valley = prices[i<span class="number">-1</span>]</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       valley = <span class="built_in">Math</span>.min(valley, prices[i])</span><br><span class="line">   &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time Complexity：O(n)<br>Space Complexity：O(1)</p>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>Simple one pass<br>In this case, instead of looking for every peak following a valley, we can simply go on crawling over the slope and directly keep on adding the difference between the consecutive numbers of the array if the second number is larger than the first one, and at the total sum we obtain will be the maximum profit.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> maxProfit = <span class="function"><span class="keyword">function</span>(<span class="params">prices</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> res = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">1</span>; i&lt;prices.length; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(prices[i]&gt;prices[i<span class="number">-1</span>])&#123;</span><br><span class="line">            res += prices[i]-prices[i<span class="number">-1</span>]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>Time Complexity：O(n)<br>Space Complexity：O(1)</p>
 
       
@@ -305,7 +313,7 @@
           
             <a href="/tags/easy/" rel="tag">#easy</a>
           
-            <a href="/tags/Array/" rel="tag">#Array</a>
+            <a href="/tags/Tree/" rel="tag">#Tree</a>
           
         </div>
       
@@ -314,17 +322,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/11/How-to-create-a-blog-with-Hexo-GitHub/" rel="next" title="How to create a blog with Hexo + GitHub">
-                <i class="fa fa-chevron-left"></i> How to create a blog with Hexo + GitHub
+              <a href="/2018/06/01/LeetCode-with-JS-100-Same-Tree/" rel="next" title="LeetCode with JS 100. Same Tree">
+                <i class="fa fa-chevron-left"></i> LeetCode with JS 100. Same Tree
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/08/LeetCode-with-JS-53-Maximum-Subarray/" rel="prev" title="LeetCode with JS 53. Maximum Subarray">
-                LeetCode with JS 53. Maximum Subarray <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -431,7 +435,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#26-Remove-Duplicates-from-Sorted-Array"><span class="nav-number">1.</span> <span class="nav-text">26. Remove Duplicates from Sorted Array</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-1"><span class="nav-number">1.1.</span> <span class="nav-text">Solution 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-2"><span class="nav-number">1.2.</span> <span class="nav-text">Solution 2</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#122-Best-Time-to-Buy-and-Sell-Stock-II"><span class="nav-number">1.</span> <span class="nav-text">122. Best Time to Buy and Sell Stock II</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-1"><span class="nav-number">1.1.</span> <span class="nav-text">Solution 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-2"><span class="nav-number">1.2.</span> <span class="nav-text">Solution 2</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

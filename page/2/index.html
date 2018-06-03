@@ -233,6 +233,104 @@
             
               
                 
+                <a class="post-title-link" href="/2018/04/11/LeetCode-with-JS-88-Merge-Sorted-Array/" itemprop="url">
+                  LeetCode with JS 88. Merge Sorted Array
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2018-04-11T20:52:16-04:00" content="2018-04-11">
+              2018-04-11
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="88-Merge-Sorted-Array"><a href="#88-Merge-Sorted-Array" class="headerlink" title="88. Merge Sorted Array"></a>88. Merge Sorted Array</h1><p>Given two sorted integer arrays <em>nums1</em> and <em>nums2</em>, merge <em>nums2</em> into <em>nums1</em> as one sorted array.</p>
+<p>Note:<br>You may assume that <em>nums1</em> has enough space (size that is greater or equal to m + n) to hold additional elements from <em>nums2</em>. The number of elements initialized in <em>nums1</em> and <em>nums2</em> are m and n respectively.</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>The Hint is fill the longer array from the end instead of start.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> merge = <span class="function"><span class="keyword">function</span>(<span class="params">nums1, m, nums2, n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> i = m<span class="number">-1</span></span><br><span class="line">    <span class="keyword">let</span> j = n<span class="number">-1</span></span><br><span class="line">    <span class="keyword">let</span> k = m+n<span class="number">-1</span></span><br><span class="line">    <span class="keyword">while</span>(i&gt;=<span class="number">0</span> &amp;&amp; j&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">        nums1[k--] = nums1[i]&gt;nums2[j] ? nums1[i--] : nums2[j--]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(j&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">        nums1[k--] = nums2[j--]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Time Complexity：O(n+m)<br>Space Complexity：O(1)</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018/04/10/LeetCode-with-JS-66-Plus-One/" itemprop="url">
                   LeetCode with JS 66. Plus One
                 </a>
@@ -894,7 +992,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
