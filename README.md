@@ -1,4 +1,4 @@
-# weekendchow.github.io
+# weekendchow.blog
 
 This is a static blog using [Hexo](https://hexo.io/)  + [GitHub pages](https://pages.github.com/). Hexo translates the blog into a static page and then uploads these static pages to github. These static pages are deployed by the static web server of github pages.
 
